@@ -1,15 +1,25 @@
 import React, {useState} from 'react';
-import {Form, FormGroup, Label, Input, Button} from 'reactstrap';
+import {Form, FormGroup, Label, Input, Button, Modal, ModalHeader, ModalBody, ModalFooter} from 'reactstrap';
+
 
 const Register = (props) => {
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
+  const {
+    buttonLabel,
+    className
+  } = props;
+
+  const [registerModal, setRegisterModal] = useState(false);
+
+  const toggle = () => setRegisterModal(!registerModal);
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
     let handleSubmit = (event) => {
         event.preventDefault();
-        fetch('http://localhost:3000/user/register', {
+        fetch('http://localhost:3001/user/register', {
             method: 'POST',
-            body: JSON.stringify({user:{username: username, password: password}}),
+            body: JSON.stringify({user:{email: email, password: password}}),
             headers: new Headers({
                 'Content-Type': 'application/json'
             })
@@ -20,22 +30,34 @@ const Register = (props) => {
         })
     }
 
-    return(
-        <div>
-            <h1>Register</h1>
+
+  return (
+    <div>
+      <Button color="danger" onClick={toggle}>Register{buttonLabel}</Button>
+      <Modal isOpen={registerModal} toggle={toggle} className={className}>
+        <ModalHeader toggle={toggle}>Register</ModalHeader>
+        <ModalBody>
             <Form onSubmit={handleSubmit}>
                 <FormGroup>
-                    <Label htmlFor="username">Email: </Label>
-                    <Input onChange={(e) => setUsername(e.target.value)} name="username" value={username}/>
+                    <Label htmlFor="email">Email: </Label>
+                    <Input onChange={(e) => setEmail(e.target.value)} name="email" type="email" value={email}/>
                 </FormGroup>
                 <FormGroup>
                     <Label htmlFor="password">Password: </Label>
-                    <Input onChange={(e) => setPassword(e.target.value)} name="password" value={password}/>
+                    <Input onChange={(e) => setPassword(e.target.value)} name="password" type="password" value={password}/>
                 </FormGroup>
-                <Button type="submit">Create Account!</Button>
-            </Form>
-        </div>
-    )
+                <FormGroup>
+                <Button color="primary" type="submit" onClick={toggle}>Create account!</Button>{' '}
+                <Button color="secondary" onClick={toggle}>Cancel</Button>
+                </FormGroup>
+            </Form>        
+            </ModalBody>
+        <ModalFooter>
+          
+        </ModalFooter>
+      </Modal>
+    </div>
+  );
 }
 
 export default Register;

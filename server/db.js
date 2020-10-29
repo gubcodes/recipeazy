@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 
-const sequelize = new Sequelize('recipeazy', 'postgres', 'whatevenisapassword', {
+const sequelize = new Sequelize('recipeazy', 'postgres', 'changeme', {
     host: 'localhost',
     dialect: 'postgres'
 });
