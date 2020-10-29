@@ -17,7 +17,7 @@ const Register = (props) => {
 
     let handleSubmit = (event) => {
         event.preventDefault();
-        fetch('http://localhost:3001/user/register', {
+        fetch('https://group-4-recipeazy-server.herokuapp.com/user/register', {
             method: 'POST',
             body: JSON.stringify({user:{email: email, password: password}}),
             headers: new Headers({
@@ -44,7 +44,7 @@ const Register = (props) => {
                 </FormGroup>
                 <FormGroup>
                     <Label htmlFor="password">Password: </Label>
-                    <Input onChange={(e) => setPassword(e.target.value)} name="password" type="password" value={password}/>
+                    <Input placeholder="Must be at least 5 characters." required minlength="5" onChange={(e) => setPassword(e.target.value)} name="password" type="password" value={password}/>
                 </FormGroup>
                 <FormGroup>
                 <Button color="primary" type="submit" onClick={toggle}>Create account!</Button>{' '}

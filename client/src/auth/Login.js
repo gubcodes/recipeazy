@@ -17,7 +17,7 @@ const Login = (props) => {
 
   let handleSubmit = (event) => {
     event.preventDefault();
-    fetch('http://localhost:3001/user/login', {
+    fetch('https://group-4-recipeazy-server.herokuapp.com/user/login', {
         method: 'POST',
         body: JSON.stringify({user:{email: email, password: password}}),
         headers: new Headers({
@@ -44,7 +44,7 @@ const Login = (props) => {
                 </FormGroup>
                 <FormGroup>
                     <Label htmlFor="password">Password: </Label>
-                    <Input onChange={(e) => setPassword(e.target.value)} type="password" name="password" value={password}/>
+                    <Input placeholder="Must be at least 5 characters." required minlength="5" onChange={(e) => setPassword(e.target.value)} type="password" name="password" value={password}/>
                 </FormGroup>
             </Form>
         </ModalBody>
