@@ -1,95 +1,80 @@
 import React, { useState, useEffect } from "react";
-import {
-  Button,
-  Card,
-  CardBody,
-  CardGroup,
-  CardSubtitle,
-  CardText,
-  CardTitle,
-  Input,
-} from "reactstrap";
-import "./App.css";
-
-import React from "react";
+import { Input, Form, InputGroup, Container, Row } from "reactstrap";
+import Recipes from "./Recipes";
 
 const Search = () => {
-  return <div></div>;
-};
+  const [query, setQuery] = useState("");
+  const [recipes, setRecipes] = useState([]);
+  const [pageNumber, setPageNumber] = useState(0);
 
-export default Search;
+  const key = "7e3ece4b23caceba0b10218d76df8b52";
+  const appId = "776dedf5";
+  const url = `https://api.edamam.com/search?q=${query}&app_id=${appId}&app_key=${key}`;
 
-const Search = () => {
-  //   const key = "7e3ece4b23caceba0b10218d76df8b52";
-  //   const appId = "776dedf5";
-  //   const url = `https://api.edamam.com/search?q={input}&app_id=${appId}&app_key=${key}`;
-  //
-  //    let inputSearch = await fetch(url)
-  //     .then(function (response) {
-  //       return response.json();
-  //     })
-  //     .then(function (json) {
-  //       console.log(json);
+  const getData = () => {
+    let data = fetch(url)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setRecipes(data.hits); //map over array?
+        setQuery("");
+      });
+  };
+
+  //   console.log(recipes); won't work here
+
+  const onChange = (e) => {
+    setQuery(e.target.value);
+  };
+
+  const onSubmit = (event) => {
+    event.preventDefault();
+    getData();
+  };
+
+  //   const recipe = () => {
+  //     recipes.map((recipe, index) => {
+  //       <Recipes recipe={recipe} index={index} />;
   //     });
+  //   };
 
-  //   const [inputItems, setInputItems] = useState([]);
-  //   const [recipes, setRecipes] = useState([]);
-
-  //   useEffect(() => {
-  //     fetch(url)
-  //       .then((res) => res.json())
-  //       .then((data) => setRecipes);
-  //   }, []);
-
-  //   console.log(recipes);
+  console.log(recipes);
 
   return (
     <>
-      <div className="input-group col-6 offset 3">
+      <div className="main m-5 p-2 col-10">
         <div className="mainDiv">
-          <Input
-            type="text"
-            placeholder="Search recipe by name, cuisine, mealtime, or ingredients"
-          >
-            Search a recipe by name, cuisine, mealtime, or ingredients
-          </Input>
+          <h3 className="search mb-3">Recipe Search</h3>
+          <Form className="form" onSubmit={onSubmit}>
+            <InputGroup>
+              <Input
+                type="text"
+                placeholder="Search by name, cuisine, mealtime, or ingredients"
+                onChange={onChange}
+                value={query}
+              />
+              <div class="input-group-append">
+                <button className="btn btn-outline-secondary" type="submit">
+                  Search
+                </button>
+              </div>
+            </InputGroup>
+          </Form>
+          <br />
+          <br />
         </div>
+      </div>
+      <div>
+        <Container>
+          <Row>
+            {recipes.map((recipe, index) => {
+              return <Recipes recipe={recipe} />;
+            })}
+          </Row>
+        </Container>
       </div>
     </>
   );
 };
 
 export default Search;
-
-// <InputGroup>
-//   <InputGroupAddon addonType="prepend">
-//     <InputGroupText>
-//       <Input
-//         addon
-//         type="checkbox"
-//         aria-label="Checkbox for following text input"
-//       />
-//     </InputGroupText>
-//   </InputGroupAddon>
-//   <Input placeholder="Check it out" />
-// </InputGroup>;
-
-// recipe results in cards; display after search is submitted and data is fetched
-{
-  /* <CardGroup>
-  <Card>
-    <CardImg
-      top
-      width="100%"
-      src="${data.hits[i].recipe.image}"
-      alt="recipic"
-    />
-    <CardBody>
-      <CardTitle>{data.hits[i].recipe.label}</CardTitle>
-      <CardSubtitle>Source: {data.hits[i].recipe.source}</CardSubtitle>
-      <CardText>{data.hits[i].recipe.description}</CardText>
-      <Button onClick="">Recipe</Button>
-    </CardBody>
-  </Card>
-</CardGroup>; */
-}
