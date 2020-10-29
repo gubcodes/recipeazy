@@ -12,14 +12,14 @@ const Register = (props) => {
 
   const toggle = () => setRegisterModal(!registerModal);
 
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
     let handleSubmit = (event) => {
         event.preventDefault();
-        fetch('http://localhost:3000/user/register', {
+        fetch('http://localhost:3001/user/register', {
             method: 'POST',
-            body: JSON.stringify({user:{username: username, password: password}}),
+            body: JSON.stringify({user:{email: email, password: password}}),
             headers: new Headers({
                 'Content-Type': 'application/json'
             })
@@ -37,20 +37,23 @@ const Register = (props) => {
       <Modal isOpen={registerModal} toggle={toggle} className={className}>
         <ModalHeader toggle={toggle}>Register</ModalHeader>
         <ModalBody>
-        <Form onSubmit={handleSubmit}>
+            <Form onSubmit={handleSubmit}>
                 <FormGroup>
-                    <Label htmlFor="username">Email: </Label>
-                    <Input onChange={(e) => setUsername(e.target.value)} name="username" type="email" value={username}/>
+                    <Label htmlFor="email">Email: </Label>
+                    <Input onChange={(e) => setEmail(e.target.value)} name="email" type="email" value={email}/>
                 </FormGroup>
                 <FormGroup>
                     <Label htmlFor="password">Password: </Label>
                     <Input onChange={(e) => setPassword(e.target.value)} name="password" type="password" value={password}/>
                 </FormGroup>
+                <FormGroup>
+                <Button color="primary" type="submit" onClick={toggle}>Create account!</Button>{' '}
+                <Button color="secondary" onClick={toggle}>Cancel</Button>
+                </FormGroup>
             </Form>        
             </ModalBody>
         <ModalFooter>
-          <Button color="primary" onClick={toggle}>Create account!</Button>{' '}
-          <Button color="secondary" onClick={toggle}>Cancel</Button>
+          
         </ModalFooter>
       </Modal>
     </div>

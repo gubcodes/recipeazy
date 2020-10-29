@@ -36,11 +36,12 @@ function App() {
   }, []);
 
   return (
+    
     <div>
      {/*} <Sitebar clickLogout={clearToken}/>
       {protectedViews()}
   */}
-    <Auth/>
+    <Auth updateToken={updateToken}/>
     </div>
   );
 }
