@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 //import Sitebar from './home/Navbar.js';
 import Auth from './auth/Auth.js';
-
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 
 
@@ -25,7 +25,8 @@ function App() {
     localStorage.clear();
     setSessionToken('');
   }
-{/*}
+
+{/*
   const protectedViews = () => {
     return (sessionToken === localStorage.getItem('token') ? <WorkoutIndex token ={sessionToken}/> : <Auth updateToken={updateToken}/>)
   }  */}

@@ -1,9 +1,19 @@
 import React, {useState} from 'react';
-import {Form, FormGroup, Label, Input, Button} from 'reactstrap';
+import {Form, FormGroup, Label, Input, Button, Modal, ModalHeader, ModalBody, ModalFooter} from 'reactstrap';
+
 
 const Register = (props) => {
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
+  const {
+    buttonLabel,
+    className
+  } = props;
+
+  const [registerModal, setRegisterModal] = useState(false);
+
+  const toggle = () => setRegisterModal(!registerModal);
+
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
     let handleSubmit = (event) => {
         event.preventDefault();
@@ -20,22 +30,31 @@ const Register = (props) => {
         })
     }
 
-    return(
-        <div>
-            <h1>Register</h1>
-            <Form onSubmit={handleSubmit}>
+
+  return (
+    <div>
+      <Button color="danger" onClick={toggle}>Register{buttonLabel}</Button>
+      <Modal isOpen={registerModal} toggle={toggle} className={className}>
+        <ModalHeader toggle={toggle}>Register</ModalHeader>
+        <ModalBody>
+        <Form onSubmit={handleSubmit}>
                 <FormGroup>
                     <Label htmlFor="username">Email: </Label>
-                    <Input onChange={(e) => setUsername(e.target.value)} name="username" value={username}/>
+                    <Input onChange={(e) => setUsername(e.target.value)} name="username" type="email" value={username}/>
                 </FormGroup>
                 <FormGroup>
                     <Label htmlFor="password">Password: </Label>
-                    <Input onChange={(e) => setPassword(e.target.value)} name="password" value={password}/>
+                    <Input onChange={(e) => setPassword(e.target.value)} name="password" type="password" value={password}/>
                 </FormGroup>
-                <Button type="submit">Create Account!</Button>
-            </Form>
-        </div>
-    )
+            </Form>        
+            </ModalBody>
+        <ModalFooter>
+          <Button color="primary" onClick={toggle}>Create account!</Button>{' '}
+          <Button color="secondary" onClick={toggle}>Cancel</Button>
+        </ModalFooter>
+      </Modal>
+    </div>
+  );
 }
 
 export default Register;
