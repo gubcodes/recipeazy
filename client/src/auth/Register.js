@@ -17,7 +17,7 @@ const Register = (props) => {
 
     let handleSubmit = (event) => {
         event.preventDefault();
-        fetch('http://localhost:3001/user/register', {
+        fetch('https://group-4-recipeazy-server.herokuapp.com/register', {
             method: 'POST',
             body: JSON.stringify({user:{email: email, password: password}}),
             headers: new Headers({
