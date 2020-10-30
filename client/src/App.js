@@ -2,10 +2,35 @@ import React, { useEffect, useState } from 'react';
 //import Sitebar from './home/Navbar.js';
 import Auth from './auth/Auth.js';
 import 'bootstrap/dist/css/bootstrap.min.css'
+import { makeStyles } from '@material-ui/core/styles';
+import { CssBaseline } from '@material-ui/core';
+import Header from './components/Header';
+import Drawer from './components/Drawer';
 
 
+
+const useStyles = makeStyles((theme) => ({
+root: {
+  minHeight: '100vh',
+  backgroundImage: `url(${process.env.PUBLIC_URL + '/assets/grocery8.jpg'})`,
+  backgroundRepeat: 'no-repeat',
+  backgroundSize: 'cover',
+  
+},
+}));
 
 function App() {
+
+  const classes = useStyles();
+  return(
+    <div className={classes.root}>
+        <CssBaseline />
+        <Header />
+        <Drawer />
+    </div>
+  )
+}
+
 
   const [sessionToken, setSessionToken] = useState('');
 
@@ -44,6 +69,8 @@ function App() {
     <Auth updateToken={updateToken}/>
     </div>
   );
-}
+
+
+
 
 export default App;
