@@ -49,8 +49,8 @@ const Login = (props) => {
             </Form>
         </ModalBody>
         <ModalFooter>
-          <Button color="primary" onClick={toggle} type="submit" onSubmit={handleSubmit}>Login</Button>{' '}
-          <Button color="secondary" onClick={toggle}>Cancel</Button>
+          <Button variant="outline-success" onClick={toggle} type="submit" onSubmit={handleSubmit}>Login</Button>{' '}
+          <Button variant="outline-danger" color="danger" onClick={toggle}>Cancel</Button>
         </ModalFooter>
       </Modal>
     </div>
