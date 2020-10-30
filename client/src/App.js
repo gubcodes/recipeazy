@@ -6,6 +6,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { CssBaseline } from "@material-ui/core";
 import Header from "./components/Header";
 import Drawer from "./components/Drawer";
+import Search from "./features/Search";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -20,46 +21,57 @@ function App() {
   const classes = useStyles();
   const [sessionToken, setSessionToken] = useState("");
 
-useEffect(() => {
-  if (localStorage.getItem("token")) {
-    setSessionToken(localStorage.getItem("token"));
-  }
-}, []);
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      setSessionToken(localStorage.getItem("token"));
+    }
+  }, []);
 
-const updateToken = (newToken) => {
-  localStorage.setItem("token", newToken);
-  setSessionToken(newToken);
-  console.log(sessionToken);
-};
+  const updateToken = (newToken) => {
+    localStorage.setItem("token", newToken);
+    setSessionToken(newToken);
+    console.log(sessionToken);
+  };
 
-const clearToken = () => {
-  localStorage.clear();
-  setSessionToken("");
-};
+  const clearToken = () => {
+    localStorage.clear();
+    setSessionToken("");
+  };
 
-{
-  /*
+  {
+    /*
   const protectedViews = () => {
     return (sessionToken === localStorage.getItem('token') ? <WorkoutIndex token ={sessionToken}/> : <Auth updateToken={updateToken}/>)
   }  */
-}
+  }
 
-useEffect(() => {
-  document.title = "Recipeazy - Find recipes with EAZE";
-}, []);
+  const protectedViews = () => {
+    return sessionToken === localStorage.getItem("token") ? (
+      <Search token={sessionToken} />
+    ) : (
+      <Auth updateToken={updateToken} />
+    );
+  };
+
+  useEffect(() => {
+    document.title = "Recipeazy - Find recipes with EAZE";
+  }, []);
 
   return (
     <div className={classes.root}>
       <CssBaseline />
       <Header />
       <Drawer />
-          {/*} <Sitebar clickLogout={clearToken}/>
+      {/*} <Sitebar clickLogout={clearToken}/>
       {protectedViews()}
   */}
-    <Auth updateToken={updateToken} />
+      <div className="App">
+        {protectedViews()}
+        {/* <Auth /> */}
+      </div>
+      <Auth updateToken={updateToken} />
     </div>
-  )
-
-};
+  );
+}
 
 export default App;
