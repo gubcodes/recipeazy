@@ -26,6 +26,7 @@ function Register(props) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+
   let handleSubmit = (event) => {
     event.preventDefault();
     fetch('https://group-4-recipeazy-server.herokuapp.com/user/register', {
@@ -40,7 +41,6 @@ function Register(props) {
       props.updateToken(data.sessionToken);
     });
   };
-
 
   return (
     <div className={classes.root}>
