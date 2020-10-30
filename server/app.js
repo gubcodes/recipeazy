@@ -22,6 +22,6 @@ app.use(require('./middleware/validateSession'));
 ************************/
 app.use('/list', list);
 
-app.listen(3001, function() {
-    console.log('--listening on 3001--')
+app.listen(process.env.PORT, () => {
+    console.log(`--listening on ${process.env.PORT}--`)
 })
