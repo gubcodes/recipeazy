@@ -31,6 +31,7 @@ function App() {
   )
 }
 
+
   const [sessionToken, setSessionToken] = useState('');
 
   useEffect(() => {
