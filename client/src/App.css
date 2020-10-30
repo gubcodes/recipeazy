@@ -40,3 +40,8 @@
 .AppBar {
   text-align: center;
 }
+
+.auth-container {
+  display: flex;
+  margin-top: -500px;
+}

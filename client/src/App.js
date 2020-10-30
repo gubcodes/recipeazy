@@ -48,7 +48,7 @@ const protectedViews = () => {
     <div className={classes.root}>
       <CssBaseline />
       
-      <Header></Header>
+      <Header/>
       <div>
       {protectedViews()}
       </div>
