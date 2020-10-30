@@ -18,16 +18,7 @@ const useStyles = makeStyles((theme) => ({
 
 function App() {
   const classes = useStyles();
-  return (
-    <div className={classes.root}>
-      <CssBaseline />
-      <Header />
-      <Drawer />
-    </div>
-  );
-}
-
-const [sessionToken, setSessionToken] = useState("");
+  const [sessionToken, setSessionToken] = useState("");
 
 useEffect(() => {
   if (localStorage.getItem("token")) {
@@ -57,13 +48,18 @@ useEffect(() => {
   document.title = "Recipeazy - Find recipes with EAZE";
 }, []);
 
-return (
-  <div>
-    {/*} <Sitebar clickLogout={clearToken}/>
+  return (
+    <div className={classes.root}>
+      <CssBaseline />
+      <Header />
+      <Drawer />
+          {/*} <Sitebar clickLogout={clearToken}/>
       {protectedViews()}
   */}
     <Auth updateToken={updateToken} />
-  </div>
-);
+    </div>
+  )
+
+};
 
 export default App;
