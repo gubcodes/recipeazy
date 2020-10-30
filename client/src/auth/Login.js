@@ -17,7 +17,7 @@ const Login = (props) => {
 
   let handleSubmit = (event) => {
     event.preventDefault();
-    fetch('https://group-4-recipeazy-server.herokuapp.com/login', {
+    fetch('https://group-4-recipeazy-server.herokuapp.com/user/login', {
         method: 'POST',
         body: JSON.stringify({user:{email: email, password: password}}),
         headers: new Headers({
