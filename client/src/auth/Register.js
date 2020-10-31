@@ -17,7 +17,7 @@ const Register = (props) => {
 
     let handleSubmit = (event) => {
         event.preventDefault();
-        fetch('https://group-4-recipeazy-server.herokuapp.com/register', {
+        fetch('https://group-4-recipeazy-server.herokuapp.com/user/register', {
             method: 'POST',
             body: JSON.stringify({user:{email: email, password: password}}),
             headers: new Headers({
@@ -53,7 +53,6 @@ const Register = (props) => {
             </Form>        
             </ModalBody>
         <ModalFooter>
-          
         </ModalFooter>
       </Modal>
     </div>

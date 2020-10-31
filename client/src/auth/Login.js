@@ -17,7 +17,7 @@ const Login = (props) => {
 
   let handleSubmit = (event) => {
     event.preventDefault();
-    fetch('https://group-4-recipeazy-server.herokuapp.com/login', {
+    fetch('https://group-4-recipeazy-server.herokuapp.com/user/login', {
         method: 'POST',
         body: JSON.stringify({user:{email: email, password: password}}),
         headers: new Headers({
@@ -36,7 +36,7 @@ const Login = (props) => {
       <Modal isOpen={loginModal} toggle={toggle} className={className}>
         <ModalHeader toggle={toggle}>Login</ModalHeader>
         <ModalBody>
-        <Form>
+        <Form onSubmit={handleSubmit}>
                 <FormGroup>
                     <Label htmlFor="email">Email: </Label>
                     <Input onChange={(e) => setEmail(e.target.value)} type="email" name="email" value={email}/>
@@ -46,11 +46,13 @@ const Login = (props) => {
                     <Label htmlFor="password">Password: </Label>
                     <Input onChange={(e) => setPassword(e.target.value)} type="password" name="password" value={password}/>
                 </FormGroup>
+                <FormGroup>
+          <Button color="primary" onClick={toggle} type="submit" >Login</Button>{' '}
+          <Button color="secondary" onClick={toggle}>Cancel</Button>
+          </FormGroup>
             </Form>
         </ModalBody>
         <ModalFooter>
-          <Button color="primary" onClick={toggle} type="submit" onSubmit={handleSubmit}>Login</Button>{' '}
-          <Button color="secondary" onClick={toggle}>Cancel</Button>
         </ModalFooter>
       </Modal>
     </div>
