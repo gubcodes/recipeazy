@@ -61,7 +61,7 @@ function App() {
     <div className={classes.root}>
       <CssBaseline />
       <Header />
-      <Drawer />
+      {/* <Drawer /> */}
       {/*} <Sitebar clickLogout={clearToken}/>
       {protectedViews()}
   */}
