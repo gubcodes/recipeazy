@@ -1,7 +1,5 @@
 import React from "react";
 import {
-  Container,
-  Row,
   Col,
   Card,
   CardBody,
@@ -18,7 +16,14 @@ const Recipes = (props) => {
     <div>
       <Col className="col-12">
         <CardGroup className="card-group m-3">
-          <Card className="card" style={{ maxWidth: "300px" }}>
+          <Card
+            className="card"
+            style={{
+              maxWidth: "300px",
+              maxHeight: "480px",
+              minHeight: "480px",
+            }}
+          >
             <CardImg
               // className="rounded mx-auto d-block"
               top
@@ -32,8 +37,12 @@ const Recipes = (props) => {
               </CardTitle>
               <CardSubtitle>Servings: {props.recipe.recipe.yield}</CardSubtitle>
               <br />
-              <CardText>Source: {props.recipe.recipe.source}</CardText>
-              <Button>Recipe</Button>
+              <CardText>
+                Source: <i>{props.recipe.recipe.source}</i>
+              </CardText>
+              <Button className="btn" type="submit" color="success">
+                Recipe
+              </Button>
             </CardBody>
           </Card>
         </CardGroup>

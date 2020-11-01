@@ -49,14 +49,6 @@ const clearToken = () => {
     document.title = "Recipeazy - Find recipes with EAZE";
   }, []);
 
-  const protectedViews = () => {
-    return sessionToken === localStorage.getItem("token") ? (
-      <Search token={sessionToken} />
-    ) : (
-      <Auth updateToken={updateToken} />
-    );
-  };
-
   return (
     <div className={classes.root}>
       <CssBaseline />
