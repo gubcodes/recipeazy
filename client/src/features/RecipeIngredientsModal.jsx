@@ -4,7 +4,7 @@
 // const Ingredients = () => {
 //   return (
 //     <div>
-//       <InputGroup className="mb-3">
+//       <InputGroup className="mb-3 overflow-auto">
 //         <InputGroup.Prepend>
 //           <InputGroup.Checkbox aria-label="Checkbox for following text input" />
 //         </InputGroup.Prepend>

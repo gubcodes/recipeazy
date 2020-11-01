@@ -17,7 +17,7 @@ const Recipes = (props) => {
       <Col className="col-12">
         <CardGroup className="card-group m-3">
           <Card
-            className="card"
+            className="card overflow-auto"
             style={{
               maxWidth: "300px",
               maxHeight: "480px",
@@ -36,11 +36,10 @@ const Recipes = (props) => {
                 <b>{props.recipe.recipe.label}</b>
               </CardTitle>
               <CardSubtitle>Servings: {props.recipe.recipe.yield}</CardSubtitle>
-              <br />
               <CardText>
                 Source: <i>{props.recipe.recipe.source}</i>
               </CardText>
-              <Button className="btn" type="submit" color="success">
+              <Button className="btn mb-1" type="submit" color="success">
                 Recipe
               </Button>
             </CardBody>
