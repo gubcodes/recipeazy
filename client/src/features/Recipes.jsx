@@ -18,7 +18,7 @@ const Recipes = (props) => {
     <div>
       <Col className="col-12">
         <CardGroup className="card-group m-3">
-          <Card style={{ maxWidth: "300px" }}>
+          <Card className="card" style={{ maxWidth: "300px" }}>
             <CardImg
               // className="rounded mx-auto d-block"
               top
