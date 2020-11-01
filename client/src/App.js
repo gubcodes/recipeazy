@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { makeStyles } from "@material-ui/core/styles";
 import { CssBaseline } from "@material-ui/core";
 import Header from "./components/Header";
-import Search from './features/Search'
+import Search from "./features/Search";
 //import Drawer from "./components/Drawer";
 
 const useStyles = makeStyles((theme) => ({
@@ -34,33 +34,34 @@ const clearToken = () => {
   localStorage.clear();
   setSessionToken("");
 };
-*/}
+*/
+  }
 
-useEffect(() => {
-  document.title = "Recipeazy - Find recipes with EAZE";
-}, []);
+  const protectedViews = () => {
+    return sessionToken === localStorage.getItem("token") ? (
+      <Search token={sessionToken} />
+    ) : (
+      <Auth updateToken={updateToken} />
+    );
+  };
 
-const protectedViews = () => {
-  return (sessionToken === localStorage.getItem('token') ? <Search token ={sessionToken}/> : <Auth updateToken={updateToken}/>)
-}  
+  useEffect(() => {
+    document.title = "Recipeazy - Find recipes with EAZE";
+  }, []);
 
   return (
     <div className={classes.root}>
       <CssBaseline />
-      
-      <Header/>
-      <div>
-      {protectedViews()}
-      </div>
-      
+
+      <Header />
+      <div>{protectedViews()}</div>
+
       {/*<Drawer />
           } <Sitebar clickLogout={clearToken}/>
       
   */}
-    
     </div>
-  )
-
-};
+  );
+}
 
 export default App;
