@@ -17,7 +17,23 @@ import Ingredients from './RecipeIngredientsModal';
 
 
 const Recipes = (props) => {
+  const [ingredient, setIngredient] = useState('');
 
+  const addIngredient = (e) => {
+    e.preventDefault();
+    fetch('https://group-4-recipeazy-server.herokuapp.com/list/create', {
+      method:'POST',
+      body: JSON.stringify({listdata:{ingredient: ingredient, quantity: 1, comment: " "}}),
+      headers: new Headers({
+        'Content-Type': 'application/json',
+        'Authorization': localStorage.token
+      })
+    }).then((res) => res.json())
+    .then((listData) => {
+      console.log(listData);
+      setIngredient('');
+    })
+  }
 
   const [recipeModal, setRecipeModal] = useState(false);
   const toggle = () => setRecipeModal(!recipeModal);
@@ -54,7 +70,8 @@ const Recipes = (props) => {
               <Modal isOpen={recipeModal} toggle={toggle}>
                 <ModalHeader toggle={toggle}>{props.recipe.recipe.label}</ModalHeader>
                 <ModalBody>
-                   {props.recipe.recipe.ingredients}
+                   {props.recipe.recipe.ingredients.map(ingredient => (<li>{ingredient.text} <button onClick={addIngredient}>Add</button></li>))}
+                   
                 </ModalBody>
                 </Modal>
             </CardBody>
