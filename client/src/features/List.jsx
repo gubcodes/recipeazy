@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Table, Button, Form, FormGroup, Label, Input } from 'reactstrap';
-
+/*
 const ShoppingList = (props) => {
 
     //plan:
@@ -47,18 +47,19 @@ const ShoppingList = (props) => {
         fetchIngredients();
     }, [])
 
-    return(
+    return(*/
+        {/*}
         <Container>
             <Row>
                 <Col md='3'>
-                    {/* render a button here to open modal with custom ingredient add */}
+                    {/* render a button here to open modal with custom ingredient add
                 </Col>
                 <Col md="9">
-                    {/* render ingredient table here */}
+                    {/* render ingredient table here 
                 </Col>
             </Row>
         </Container>
     )
-
-}
+    
+}*/}
 //TODO: add the list table component, the edit component (and add custom component that will be mostly identical with POST instead of PUT), and the list page component to put them all in

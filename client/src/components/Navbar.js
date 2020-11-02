@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { AppBar, IconButton, makeStyles, Toolbar, } from '@material-ui/core';
 import {
     Route,
     Link,
@@ -23,10 +24,23 @@ import Auth from '../auth/Auth';
 import Home from '../components/Home';
 
 
+const useStyles = makeStyles((theme) => ({
+  colorText: {
+      fontFamily: "Grandstander",
+      color: "#18E817",
+  },
+  colorText2: {
+      fontFamily: "Grandstander",
+      color: "#E717E8",
+  }
+}));
+
 const RecipeNavbar = (props) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
+
+  const classes = useStyles();
 
   const [sessionToken, setSessionToken] = useState("");
 
@@ -37,9 +51,9 @@ const RecipeNavbar = (props) => {
   };
 
   return (
-    <div>
+    <div className={classes.root}>
       <Navbar color="light" light expand="md">
-        <NavbarBrand href="/home">recipeaze</NavbarBrand>
+        <NavbarBrand href="/home"><span className={classes.colorText2}>Recip</span><span className={classes.colorText}>Eazy</span></NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
