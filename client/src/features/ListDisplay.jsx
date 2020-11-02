@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import { Table, Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import ListEdit from './ListEdit';
 
-const ShoppingList = (props) => {
+const ListDisplay = (props) => {
 
     //plan:
     //pull user's list from datase
@@ -50,15 +51,15 @@ const ShoppingList = (props) => {
     return(
         <Container>
             <Row>
-                <Col md='3'>
-                    {/* render a button here to open modal with custom ingredient add */}
-                </Col>
                 <Col md="9">
-                    {/* render ingredient table here */}
+                    <ListTable ingredients={ingredients} editUpdateIngredient={editUpdateIngredient} updateOn={updateOn} fetchIngredients={fetchIngredients} token={props.token}/>
                 </Col>
+                {updateOpen ? <ListEdit ingredientToEdit={ingredientToEdit}
+                updateOff={updateOff} token={props.token} fetchIngredients={fetchIngredients} /> : <></>}
             </Row>
         </Container>
     )
 
 }
-//TODO: add the list table component, the edit component (and add custom component that will be mostly identical with POST instead of PUT), and the list page component to put them all in
+
+export default ListDisplay;
