@@ -21,6 +21,15 @@ const useStyles = makeStyles((theme) => ({
         textAlign: 'Center',
         fontSize: '6rem',
         textShadow: "2px 2px 4px #000000",
+    },
+    bodyText: {
+        fontFamily: "Roboto",
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        textAlign: 'center',
+        backgroundColor: '#18E817',
+        maxWidth: '55%',
+        borderRadius: '10px',
     }
 }));
 
@@ -29,6 +38,9 @@ function Home(props) {
     const classes = useStyles();
     return(
     <div className={classes.container}>
+        <br/>
+        <br/>
+        <br/>
     <h1 className={classes.title}>
         Grocery
      <span className={classes.colorText}> Shop</span> <br /> 
@@ -37,7 +49,7 @@ function Home(props) {
       <br/>
       <br/>
       <br/>
-      <h3 className={classes.colorText}>Search for recipes and add the desired ingredients into your own personal shopping list!</h3>
+      <h3 className={classes.bodyText}><span className={classes.colorText2}>Search for recipes and add the desired ingredients into your own personal shopping list!</span></h3>
 </div>
 )}
 

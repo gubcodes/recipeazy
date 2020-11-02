@@ -67,7 +67,7 @@ const RecipeNavbar = (props) => {
               <NavLink href="/">Shopping List</NavLink>
             </NavItem>
           </Nav>
-          <NavbarText>Simple Text</NavbarText>
+          <NavbarText><span className={classes.colorText2}>Finding recipes with </span><span className={classes.colorText}>eaze.</span></NavbarText>
         </Collapse>
       </Navbar>
       <Switch>
