@@ -9,6 +9,7 @@ import Search from './features/Search'
 import { Navbar } from "reactstrap";
 import RecipeNavbar from './components/Navbar';
 import {BrowserRouter as Router} from 'react-router-dom'; 
+
 //import Drawer from "./components/Drawer";
 
 const useStyles = makeStyles((theme) => ({
@@ -37,7 +38,9 @@ const clearToken = () => {
   localStorage.clear();
   setSessionToken("");
 };
-*/}
+*/
+  }
+
 
 useEffect(() => {
   document.title = "Recipeazy - Find recipes with EAZE";
@@ -47,26 +50,35 @@ const protectedViews = () => {
   return (sessionToken === localStorage.getItem('token') ? <Search token ={sessionToken}/> : <Auth updateToken={updateToken}/>)
 }  */}
 
+  const protectedViews = () => {
+    return sessionToken === localStorage.getItem("token") ? (
+      <Search token={sessionToken} />
+    ) : (
+      <Auth updateToken={updateToken} />
+    );
+  };
+
+
   return (
     <div className={classes.root}>
       <CssBaseline />
-    
       <Router>
       <RecipeNavbar/>
       </Router>
       
       
-      {/*<Drawer />
+      <Header />
+      {/*<div>{protectedViews()}</div>
+
+
+      <Drawer />
           } <Sitebar clickLogout={clearToken}/>
           <div>
       {protectedViews()}
       </div>*/}
       
-  
-    
     </div>
-  )
-
-};
+  );
+}
 
 export default App;
