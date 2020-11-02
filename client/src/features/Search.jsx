@@ -13,7 +13,6 @@ import Recipes from "./Recipes";
 const Search = () => {
   const [query, setQuery] = useState("");
   const [recipes, setRecipes] = useState([]);
-  // const [pageNumber, setPageNumber] = useState(0);
 
   const key = "7e3ece4b23caceba0b10218d76df8b52";
   const appId = "776dedf5";
@@ -37,12 +36,6 @@ const Search = () => {
     event.preventDefault();
     getData();
   };
-
-  //   const recipe = () => {
-  //     recipes.map((recipe, index) => {
-  //       <Recipes recipe={recipe} index={index} />;
-  //     });
-  //   };
 
   console.log(recipes);
 
@@ -76,12 +69,8 @@ const Search = () => {
       <div>
         <Container>
           <Row>
-            {recipes.length > 0 ? (
-              recipes.map((recipe) => {
-                return <Recipes recipe={recipe} />;
-              })
-            ) : (
-              <div>
+            {recipes.length === 0 ? (
+              <div id="searchResult">
                 <Jumbotron>
                   <h3 className="jumbo">Sorry, that's not on the menu!</h3>
                   <p className="lead">
@@ -91,6 +80,8 @@ const Search = () => {
                   <hr className="my-2" />
                 </Jumbotron>
               </div>
+            ) : (
+              recipes.map((recipe) => <Recipes recipe={recipe} />)
             )}
           </Row>
         </Container>

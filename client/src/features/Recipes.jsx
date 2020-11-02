@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import {
   Col,
   Card,
@@ -9,23 +9,18 @@ import {
   CardText,
   CardTitle,
   Button,
-  Modal,
-  ModalHeader,
-  ModalBody,
-  Form,
-  FormGroup,
-  Label,
-  Input,
+  Form, FormGroup, Modal, ModalHeader, ModalBody
 } from "reactstrap";
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import Ingredients from './RecipeIngredientsModal';
+
 
 const Recipes = (props) => {
+
+
   const [recipeModal, setRecipeModal] = useState(false);
-
   const toggle = () => setRecipeModal(!recipeModal);
-
-  const modalDisplay = () => {
-    return window.alert("A modal will be here, eventually");
-  };
 
   return (
     <div>
@@ -53,56 +48,18 @@ const Recipes = (props) => {
               <CardText>
                 Source: <i>{props.recipe.recipe.source}</i>
               </CardText>
-              <Button
-                onClick={toggle}
-                className="btn mb-1"
-                type="button"
-                color="success"
-              >
-                Recipe
-              </Button>
-              <Modal isOpen={recipeModal} toggle={toggle} className="modal">
-                <ModalHeader toggle={toggle}>Recipe</ModalHeader>
+
+              <Button color="success" onClick={toggle}>Recipe</Button>
+              <Modal isOpen={recipeModal} toggle={toggle}>
+                <ModalHeader toggle={toggle}>{props.recipe.recipe.label}</ModalHeader>
                 <ModalBody>
-                  <Form>
-                    <FormGroup>
-                      <Label htmlFor="email">Email: </Label>
-                    </FormGroup>
-                    <FormGroup>
-                      <Label htmlFor="password">Password: </Label>
-                      <Input />
-                    </FormGroup>
-                    <FormGroup>
-                      <Button color="primary" type="submit" onClick={toggle}>
-                        Create account!
-                      </Button>{" "}
-                      <Button color="secondary" onClick={toggle}>
-                        Cancel
-                      </Button>
-                    </FormGroup>
-                  </Form>
+                   
                 </ModalBody>
-              </Modal>
+                </Modal>
             </CardBody>
           </Card>
         </CardGroup>
       </Col>
-      {/* {recipes.length > 0 ? (
-              recipes.map((recipe) => {
-                return <Recipes recipe={recipe} />;
-              })
-            ) : (
-              <div>
-                <Jumbotron>
-                  <h3 className="jumbo">Sorry, that's not on the menu!</h3>
-                  <p className="lead">
-                    We didn't find any recipes for that search. Since you're
-                    still hungry, try again.
-                  </p>
-                  <hr className="my-2" />
-                </Jumbotron>
-              </div>
-            )} */}
     </div>
   );
 };
