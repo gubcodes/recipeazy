@@ -1,12 +1,25 @@
 import React, {useState} from 'react';
 import {Form, FormGroup, Label, Input, Button, Modal, ModalHeader, ModalBody, ModalFooter} from 'reactstrap';
+import {makeStyles} from '@material-ui/core';
+import "bootstrap/dist/css/bootstrap.min.css";
 
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+
+      fontFamily: "Grandstander",
+
+  }
+
+}));
 
 const Login = (props) => {
   const {
     buttonLabel,
     className
   } = props;
+
+  const classes = useStyles();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -31,10 +44,10 @@ const Login = (props) => {
 }
 
   return (
-    <div>
+    <div className={classes.root}>
       <Button color="danger" onClick={toggle}>Login{buttonLabel}</Button>
       <Modal isOpen={loginModal} toggle={toggle} className={className}>
-        <ModalHeader toggle={toggle}>Login</ModalHeader>
+        <ModalHeader toggle={toggle}>Welcome back!</ModalHeader>
         <ModalBody>
         <Form onSubmit={handleSubmit}>
                 <FormGroup>
@@ -47,13 +60,11 @@ const Login = (props) => {
                     <Input onChange={(e) => setPassword(e.target.value)} type="password" name="password" value={password}/>
                 </FormGroup>
                 <FormGroup>
-          <Button color="primary" onClick={toggle} type="submit" >Login</Button>{' '}
-          <Button color="secondary" onClick={toggle}>Cancel</Button>
-          </FormGroup>
+                <Button color="primary" onClick={toggle} type="submit">Login</Button>{' '}
+                <Button color="secondary" onClick={toggle}>Cancel</Button>
+                </FormGroup>
             </Form>
         </ModalBody>
-        <ModalFooter>
-        </ModalFooter>
       </Modal>
     </div>
   );

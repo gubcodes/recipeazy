@@ -2,18 +2,18 @@ import React from 'react';
 import {Container, Row, Col} from 'reactstrap';
 import Register from './Register';
 import Login from './Login';
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const Auth = (props) => {
     return(
         <Container className="auth-container">
-            <Row>
-                <Col md="6">
+            <Col>
                     <Register updateToken={props.updateToken}/>
-                </Col>
-                <Col md="6">
+            </Col>
+            <Col/>
+            <Col>
                     <Login updateToken={props.updateToken}/>
-                </Col>
-            </Row>
+            </Col>
         </Container>
     )
 }

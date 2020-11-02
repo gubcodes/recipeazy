@@ -2,12 +2,10 @@ import React, { useEffect, useState } from 'react'
 import { AppBar, IconButton, makeStyles, Toolbar, } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import Auth from '../auth/Auth'
+import Search from '../features/Search'
 //import Zoom from '@material-ui/core/Zoom';
 //import FormControlLabel from '@material-ui/core/FormControlLabel';
-
-
-
-
 
 
 
@@ -17,8 +15,11 @@ const useStyles = makeStyles((theme) => ({
             justifyContent: 'center',
             alignItems: 'center',
             height: '100vh',
+            padding: '5px'
         },
         AppBar:{
+            textAlign: 'right',
+            padding: '5px',
             background:"none",
             fontFamily: "Grandstander",
         },
@@ -60,19 +61,17 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-function Header() {
+function Header(props) {
     const classes = useStyles();
-    
-    
+
+
+
     return (
         <div className={classes.root}>
             <AppBar className={classes.AppBar} elevation={0}>
                 <Toolbar className={classes.appBarWrapper}>
                 <h1 className={classes.AppBarTitle}><span className={classes.colorText2}>Recip</span><span className={classes.colorText}>Eazy</span></h1>
-                <IconButton>
-                    <MenuIcon className={classes.icon}/>
-                    {/* <Link to="/Drawer"></Link> */}
-                </IconButton>
+                
                 </Toolbar>
             </AppBar>
             
@@ -82,9 +81,21 @@ function Header() {
                  <span className={classes.colorText}> Shop</span> <br /> 
                     With
                   <span className={classes.colorText2}> Us</span></h1>
-                <IconButton>
-                    <ExpandMoreIcon className={classes.downArrow} />
-                </IconButton>
+            </div>
+            <div>
+            
+            {/*
+            <Navbar color="transparent" light expand="md">
+            <NavbarBrand href="/"> </NavbarBrand>
+            <NavbarToggler onClick={toggle}/>
+            <Collapse isOpen={isOpen} navbar>
+                <Nav className='ml-auto' navbar>
+                    <NavItem>
+                        <Button onClick={props.clickLogout}>Logout</Button>
+                    </NavItem>
+                </Nav>
+            </Collapse>
+        </Navbar>*/}
             </div>
             
         </div>
