@@ -22,6 +22,7 @@ import {
 import Search from '../features/Search';
 import Auth from '../auth/Auth';
 import Home from '../components/Home';
+import ListDisplay from '../features/List';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -64,7 +65,7 @@ const RecipeNavbar = (props) => {
               <NavLink href="/search">Recipe Search</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/">Shopping List</NavLink>
+              <NavLink href="/list">Shopping List</NavLink>
             </NavItem>
           </Nav>
           <NavbarText>Simple Text</NavbarText>
@@ -73,6 +74,7 @@ const RecipeNavbar = (props) => {
       <Switch>
             <Route exact path="/home"><Home/></Route>
             <Route exact path="/search"><Search/></Route>
+            <Route exact path="/list"><ListDisplay token={sessionToken} /></Route>
       </Switch>
     </div>
   );

@@ -8,18 +8,18 @@ const ListTable = (props) => {
             method: 'DELETE',
             headers: new Headers({
                 'Content-Type': 'application/json',
-                'Authorization': props.token
+                'Authorization': localStorage.token
             })
         })
         .then(() => props.fetchIngredients())
     }
 
     const ingredientMap = () => {
-        return props.list.map((ingredient, index) => {
+        return props.ingredients.map((ingredient, index) => {
             return(
                 <tr key={index}>
-                    <th scope='row'>{ingredient.id}</th>
-                    <td>{ingredient.ingredient}</td>
+                    {/* <th scope='row'>{ingredient.id}</th> */}
+                    <th scope='row'>{ingredient.ingredient}</th>
                     <td>{ingredient.quantity}</td>
                     <td>{ingredient.comment}</td>
                     <td>
