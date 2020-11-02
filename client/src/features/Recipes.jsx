@@ -54,7 +54,7 @@ const Recipes = (props) => {
               <Modal isOpen={recipeModal} toggle={toggle}>
                 <ModalHeader toggle={toggle}>{props.recipe.recipe.label}</ModalHeader>
                 <ModalBody>
-                   {props.recipe.recipe.ingredients}
+                   
                 </ModalBody>
                 </Modal>
             </CardBody>
