@@ -13,7 +13,6 @@ import {
 } from "reactstrap";
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import Ingredients from './RecipeIngredientsModal';
 
 
 const Recipes = (props) => {
@@ -53,7 +52,9 @@ const Recipes = (props) => {
               <Modal isOpen={recipeModal} toggle={toggle}>
                 <ModalHeader toggle={toggle}>{props.recipe.recipe.label}</ModalHeader>
                 <ModalBody>
-                   
+                {props.recipe.recipe.ingredients.map(ingredient =>(
+                  <li>{ingredient.text}</li>
+                ))}
                 </ModalBody>
                 </Modal>
             </CardBody>

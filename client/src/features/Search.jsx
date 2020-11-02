@@ -72,16 +72,16 @@ const Search = () => {
             {recipes.length === 0 ? (
               <div id="searchResult">
                 <Jumbotron>
-                  <h3 className="jumbo">Sorry, that's not on the menu!</h3>
+                  <h3 className="jumbo">What's on the menu?</h3>
                   <p className="lead">
-                    We didn't find any recipes for that search. Since you're
-                    still hungry, try a different search!
+                    If you're
+                    still hungry, try another search!
                   </p>
                   <hr className="my-2" />
                 </Jumbotron>
               </div>
             ) : (
-              recipes.map((recipe) => <Recipes recipe={recipe} />)
+              recipes.map((recipe) => <Recipes recipe={recipe} title={recipe.recipe.label} ingredients={recipe.recipe.ingredients} />)
             )}
           </Row>
         </Container>
