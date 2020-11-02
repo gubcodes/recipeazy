@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Col,
   Card,
@@ -9,6 +9,10 @@ import {
   CardText,
   CardTitle,
   Button,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
 } from "reactstrap";
 
 const Recipes = (props) => {
@@ -46,6 +50,22 @@ const Recipes = (props) => {
           </Card>
         </CardGroup>
       </Col>
+      {/* {recipes.length > 0 ? (
+              recipes.map((recipe) => {
+                return <Recipes recipe={recipe} />;
+              })
+            ) : (
+              <div>
+                <Jumbotron>
+                  <h3 className="jumbo">Sorry, that's not on the menu!</h3>
+                  <p className="lead">
+                    We didn't find any recipes for that search. Since you're
+                    still hungry, try again.
+                  </p>
+                  <hr className="my-2" />
+                </Jumbotron>
+              </div>
+            )} */}
     </div>
   );
 };

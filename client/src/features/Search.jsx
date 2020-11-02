@@ -48,6 +48,7 @@ const Search = () => {
           <Form className="form" onSubmit={onSubmit}>
             <InputGroup size="lg">
               <Input
+                className="input col-6"
                 type="text"
                 placeholder="Search by name, cuisine, mealtime, or ingredients"
                 onChange={onChange}
@@ -67,7 +68,7 @@ const Search = () => {
       <div>
         <Container>
           <Row>
-            {recipes.map((recipe, index) => {
+            {recipes.map((recipe) => {
               return <Recipes recipe={recipe} />;
             })}
           </Row>
