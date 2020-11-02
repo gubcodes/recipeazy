@@ -46,7 +46,7 @@ function Register(props) {
     <div className={classes.root}>
       <Button color="danger" onClick={toggle}>Register{buttonLabel}</Button>
       <Modal isOpen={registerModal} toggle={toggle} className={className}>
-        <ModalHeader toggle={toggle}>Sign up and begin searching now!</ModalHeader>
+        <ModalHeader toggle={toggle}>Sign up to save your shopping list!</ModalHeader>
         <ModalBody>
           <Form onSubmit={handleSubmit}>
             <FormGroup>
@@ -55,10 +55,10 @@ function Register(props) {
             </FormGroup>
             <FormGroup>
               <Label htmlFor="password">Password: </Label>
-              <Input onChange={(e) => setPassword(e.target.value)} name="password" type="password" value={password} />
+              <Input minLength="5" onChange={(e) => setPassword(e.target.value)} name="password" type="password" value={password} />
             </FormGroup>
             <FormGroup>
-              <Button color="primary" type="submit" onClick={toggle}>Create account!</Button>{' '}
+              <Button color="primary" type="submit" onClick={toggle}>Create account</Button>{' '}
               <Button color="secondary" onClick={toggle}>Cancel</Button>
             </FormGroup>
           </Form>

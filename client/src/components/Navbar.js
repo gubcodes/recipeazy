@@ -58,17 +58,19 @@ const RecipeNavbar = (props) => {
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
+            
             <NavItem>
-            <Auth updateToken={updateToken}/>
-            </NavItem>
-            <NavItem>
-              <NavLink href="/search">Recipe Search</NavLink>
+              <NavLink href="/search"><span className={classes.colorText2}>Recipe Search</span></NavLink>
             </NavItem>
             <NavItem>
               <NavLink href="/list">Shopping List</NavLink>
+              <NavLink href="/"><span className={classes.colorText}>Shopping List</span></NavLink>
             </NavItem>
           </Nav>
-          <NavbarText>Simple Text</NavbarText>
+          <Nav>
+            <Auth updateToken={updateToken}/>
+          </Nav>  
+          <NavbarText><span className={classes.colorText2}>Finding recipes with </span><span className={classes.colorText}>eaze.</span></NavbarText>
         </Collapse>
       </Navbar>
       <Switch>
