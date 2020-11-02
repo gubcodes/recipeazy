@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Table, Button, Form, FormGroup, Label, Input, Container, Row, Col, ListTable } from 'reactstrap';
+import { Table, Button, Form, FormGroup, Label, Input, Container, Row, Col, ListTable, Card } from 'reactstrap';
 import ListEdit from './ListEdit';
+import ListTable from './ListIngredients';
 
 const ListDisplay = (props) => {
 
@@ -22,7 +23,7 @@ const ListDisplay = (props) => {
             method: 'GET',
             headers: new Headers({
                 'Content-Type': 'application/json',
-                'Authorization': props.token
+                'Authorization': localStorage.token
             })
         }).then((res) => res.json())
         .then((listData) => {
@@ -50,6 +51,7 @@ const ListDisplay = (props) => {
 
     return(
         <Container>
+            <Card body>
             <Row>
                 <Col md="9">
                     <ListTable ingredients={ingredients} editUpdateIngredient={editUpdateIngredient} updateOn={updateOn} fetchIngredients={fetchIngredients} token={props.token}/>
@@ -57,6 +59,7 @@ const ListDisplay = (props) => {
                 {updateOpen ? <ListEdit ingredientToEdit={ingredientToEdit}
                 updateOff={updateOff} token={props.token} fetchIngredients={fetchIngredients} /> : <></>}
             </Row>
+            </Card>
         </Container>
     )
 
