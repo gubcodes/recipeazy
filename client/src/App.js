@@ -7,6 +7,7 @@ import { CssBaseline } from "@material-ui/core";
 import Header from "./components/Header";
 import Search from './features/Search'
 import { Navbar } from "reactstrap";
+import Home from './components/Home';
 import RecipeNavbar from './components/Navbar';
 import {BrowserRouter as Router} from 'react-router-dom'; 
 
@@ -48,7 +49,7 @@ useEffect(() => {
 {/*
 const protectedViews = () => {
   return (sessionToken === localStorage.getItem('token') ? <Search token ={sessionToken}/> : <Auth updateToken={updateToken}/>)
-}  */}
+}  
 
   const protectedViews = () => {
     return sessionToken === localStorage.getItem("token") ? (
@@ -56,7 +57,7 @@ const protectedViews = () => {
     ) : (
       <Auth updateToken={updateToken} />
     );
-  };
+  };*/}
 
 
   return (
@@ -66,8 +67,6 @@ const protectedViews = () => {
       <RecipeNavbar/>
       </Router>
       
-      
-      <Header />
       {/*<div>{protectedViews()}</div>
 
 
