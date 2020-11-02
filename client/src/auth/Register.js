@@ -38,14 +38,15 @@ function Register(props) {
       (response) => response.json()
     ).then((data) => {
       props.updateToken(data.sessionToken);
-    });
+    }).then(alert('Your account has been created!'))
+    .catch(alert('Something went wrong - please retry.'));
   };
 
   return (
     <div className={classes.root}>
       <Button color="danger" onClick={toggle}>Register{buttonLabel}</Button>
       <Modal isOpen={registerModal} toggle={toggle} className={className}>
-        <ModalHeader toggle={toggle}>Register</ModalHeader>
+        <ModalHeader toggle={toggle}>Sign up and begin searching now!</ModalHeader>
         <ModalBody>
           <Form onSubmit={handleSubmit}>
             <FormGroup>

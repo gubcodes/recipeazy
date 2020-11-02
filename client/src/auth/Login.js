@@ -47,7 +47,7 @@ const Login = (props) => {
     <div className={classes.root}>
       <Button color="danger" onClick={toggle}>Login{buttonLabel}</Button>
       <Modal isOpen={loginModal} toggle={toggle} className={className}>
-        <ModalHeader toggle={toggle}>Login</ModalHeader>
+        <ModalHeader toggle={toggle}>Welcome back!</ModalHeader>
         <ModalBody>
         <Form onSubmit={handleSubmit}>
                 <FormGroup>
