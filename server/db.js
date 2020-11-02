@@ -6,7 +6,7 @@ const sequelize = new Sequelize(process.env.DATABASE_URL, {
 
 sequelize.authenticate().then(
     function() {
-        console.log('connected to recipeazy local postgres database');
+        console.log('connected to recipeazy heroku postgres database');
     },
     function(err) {
         console.log(err);
