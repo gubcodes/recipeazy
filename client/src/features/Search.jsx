@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
-import { Input, Form, InputGroup, Container, Row } from "reactstrap";
+import React, { useState } from "react";
+import { Input, Form, InputGroup, Container, Row, Button } from "reactstrap";
 import Recipes from "./Recipes";
 
 const Search = () => {
   const [query, setQuery] = useState("");
   const [recipes, setRecipes] = useState([]);
-  const [pageNumber, setPageNumber] = useState(0);
+  // const [pageNumber, setPageNumber] = useState(0);
 
   const key = "7e3ece4b23caceba0b10218d76df8b52";
   const appId = "776dedf5";
@@ -20,8 +20,6 @@ const Search = () => {
         setQuery("");
       });
   };
-
-  //   console.log(recipes); won't work here
 
   const onChange = (e) => {
     setQuery(e.target.value);
@@ -44,9 +42,11 @@ const Search = () => {
     <>
       <div className="main m-5 p-2 col-10">
         <div className="mainDiv">
-          <h3 className="search mb-3">Recipe Search</h3>
+          <h3 className="search mb-3" style={{ color: "white" }}>
+            Recipe Search
+          </h3>
           <Form className="form" onSubmit={onSubmit}>
-            <InputGroup>
+            <InputGroup size="lg">
               <Input
                 type="text"
                 placeholder="Search by name, cuisine, mealtime, or ingredients"
@@ -54,9 +54,9 @@ const Search = () => {
                 value={query}
               />
               <div class="input-group-append">
-                <button className="btn btn-outline-secondary" type="submit">
+                <Button className="btn" type="submit" color="success">
                   Search
-                </button>
+                </Button>
               </div>
             </InputGroup>
           </Form>
