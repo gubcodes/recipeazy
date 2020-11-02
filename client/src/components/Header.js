@@ -74,7 +74,7 @@ function Header(props) {
                 
                 </Toolbar>
             </AppBar>
-            
+            {/*
             <div className={classes.container}>
                 <h1 className={classes.title}>
                     Grocery
@@ -84,7 +84,7 @@ function Header(props) {
             </div>
             <div>
             
-            {/*
+            
             <Navbar color="transparent" light expand="md">
             <NavbarBrand href="/"> </NavbarBrand>
             <NavbarToggler onClick={toggle}/>
@@ -95,8 +95,8 @@ function Header(props) {
                     </NavItem>
                 </Nav>
             </Collapse>
-        </Navbar>*/}
-            </div>
+        </Navbar>
+            </div>*/}
             
         </div>
     )
