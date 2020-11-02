@@ -2,18 +2,18 @@ import React, { useState } from 'react';
 import {Form, FormGroup, Modal, ModalBody, ModalHeader, Label, Input, Button } from 'reactstrap';
 
 const ListEdit = (props) => {
-    const [ editQuantity, setEditQuantity ] = useState(props.ingredientToUpdate.quantity);
-    const [ editComment, setEditComment ] = useState(props.ingredientToUpdate.comment);
+    const [ editQuantity, setEditQuantity ] = useState(props.ingredientToEdit.quantity);
+    const [ editComment, setEditComment ] = useState(props.ingredientToEdit.comment);
     //maybe add editIngredient
 
     const ingredientUpdate = (event, ingredient) => {
         event.preventDefault();
-        fetch(`https://group-4-recipeazy-server.herokuapp.com/list/${props.ingredientToUpdate.id}`, {
+        fetch(`https://group-4-recipeazy-server.herokuapp.com/list/${props.ingredientToEdit.id}`, {
             method: 'PUT',
             body: JSON.stringify({listdata: {quantity: editQuantity, comment: editComment}}),
             headers: new Headers({
                 'Content-Type': 'application/json',
-                'Authorization': props.token
+                'Authorization': localStorage.token
             })
         }).then((res) => {
             props.fetchIngredients();
