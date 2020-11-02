@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {
   Col,
   Card,
@@ -9,9 +9,19 @@ import {
   CardText,
   CardTitle,
   Button,
+  Form, FormGroup, Modal, ModalHeader, ModalBody
 } from "reactstrap";
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import Ingredients from './RecipeIngredientsModal';
+
 
 const Recipes = (props) => {
+
+
+  const [recipeModal, setRecipeModal] = useState(false);
+  const toggle = () => setRecipeModal(!recipeModal);
+
   return (
     <div>
       <Col className="col-12">
@@ -39,9 +49,14 @@ const Recipes = (props) => {
               <CardText>
                 Source: <i>{props.recipe.recipe.source}</i>
               </CardText>
-              <Button className="btn mb-1" type="submit" color="success">
-                Recipe
-              </Button>
+
+              <Button color="danger" onClick={toggle}>Recipe</Button>
+              <Modal isOpen={recipeModal} toggle={toggle}>
+                <ModalHeader toggle={toggle}>{props.recipe.recipe.label}</ModalHeader>
+                <ModalBody>
+                   {props.recipe.recipe.ingredients}
+                </ModalBody>
+                </Modal>
             </CardBody>
           </Card>
         </CardGroup>
