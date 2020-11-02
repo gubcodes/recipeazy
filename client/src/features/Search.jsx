@@ -1,11 +1,18 @@
 import React, { useState } from "react";
-import { Input, Form, InputGroup, Container, Row, Button } from "reactstrap";
+import {
+  Input,
+  Form,
+  InputGroup,
+  Container,
+  Row,
+  Button,
+  Jumbotron,
+} from "reactstrap";
 import Recipes from "./Recipes";
 
 const Search = () => {
   const [query, setQuery] = useState("");
   const [recipes, setRecipes] = useState([]);
-  // const [pageNumber, setPageNumber] = useState(0);
 
   const key = "7e3ece4b23caceba0b10218d76df8b52";
   const appId = "776dedf5";
@@ -30,12 +37,6 @@ const Search = () => {
     getData();
   };
 
-  //   const recipe = () => {
-  //     recipes.map((recipe, index) => {
-  //       <Recipes recipe={recipe} index={index} />;
-  //     });
-  //   };
-
   console.log(recipes);
 
   return (
@@ -48,6 +49,7 @@ const Search = () => {
           <Form className="form" onSubmit={onSubmit}>
             <InputGroup size="lg">
               <Input
+                className="input col-6"
                 type="text"
                 placeholder="Search by name, cuisine, mealtime, or ingredients"
                 onChange={onChange}
@@ -67,9 +69,20 @@ const Search = () => {
       <div>
         <Container>
           <Row>
-            {recipes.map((recipe, index) => {
-              return <Recipes recipe={recipe} />;
-            })}
+            {recipes.length === 0 ? (
+              <div id="searchResult">
+                <Jumbotron>
+                  <h3 className="jumbo">What's on the menu?</h3>
+                  <p className="lead">
+                    If you're
+                    still hungry, try another search!
+                  </p>
+                  <hr className="my-2" />
+                </Jumbotron>
+              </div>
+            ) : (
+              recipes.map((recipe) => <Recipes recipe={recipe} title={recipe.recipe.label} ingredients={recipe.recipe.ingredients} />)
+            )}
           </Row>
         </Container>
       </div>

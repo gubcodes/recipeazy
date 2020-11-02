@@ -13,7 +13,6 @@ import {
 } from "reactstrap";
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import Ingredients from './RecipeIngredientsModal';
 
 
 const Recipes = (props) => {
@@ -51,7 +50,6 @@ const Recipes = (props) => {
             }}
           >
             <CardImg
-              // className="rounded mx-auto d-block"
               top
               width="100%"
               src={props.recipe.recipe.image}
@@ -66,7 +64,7 @@ const Recipes = (props) => {
                 Source: <i>{props.recipe.recipe.source}</i>
               </CardText>
 
-              <Button color="danger" onClick={toggle}>Recipe</Button>
+              <Button color="success" onClick={toggle}>Recipe</Button>
               <Modal isOpen={recipeModal} toggle={toggle}>
                 <ModalHeader toggle={toggle}>{props.recipe.recipe.label}</ModalHeader>
                 <ModalBody>
