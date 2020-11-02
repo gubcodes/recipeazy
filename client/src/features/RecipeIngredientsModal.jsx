@@ -1,17 +1,22 @@
-// import React from "react";
-// import { InputGroup, FormControl } from "reactstrap";
+import React from "react";
+import {Button} from 'reactstrap';
 
-// const Ingredients = () => {
-//   return (
-//     <div>
-//       <InputGroup className="mb-3 overflow-auto">
-//         <InputGroup.Prepend>
-//           <InputGroup.Checkbox aria-label="Checkbox for following text input" />
-//         </InputGroup.Prepend>
-//         <FormControl aria-label="Text input with checkbox" />
-//       </InputGroup>
-//     </div>
-//   );
-// };
+const Ingredients = (props) => {
+    return props.recipe.ingredients.map((ingredients, index) => {
+        return(
+            <div>
+                <tr key={index}>
+                    <th scope="row">{ingredients}</th>
+                    <td>{ingredients}</td>
+                    <td>
+                        <Button>Add</Button>
+                        <Button>Delete</Button>
+                    </td>
+                </tr>
+            </div>
+        )
+    })
+    
+}
 
-// export default Ingredients;
+export default Ingredients;
