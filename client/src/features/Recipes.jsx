@@ -12,10 +12,21 @@ import {
   Modal,
   ModalHeader,
   ModalBody,
-  ModalFooter,
+  Form,
+  FormGroup,
+  Label,
+  Input,
 } from "reactstrap";
 
 const Recipes = (props) => {
+  const [recipeModal, setRecipeModal] = useState(false);
+
+  const toggle = () => setRecipeModal(!recipeModal);
+
+  const modalDisplay = () => {
+    return window.alert("A modal will be here, eventually");
+  };
+
   return (
     <div>
       <Col className="col-12">
@@ -29,7 +40,6 @@ const Recipes = (props) => {
             }}
           >
             <CardImg
-              // className="rounded mx-auto d-block"
               top
               width="100%"
               src={props.recipe.recipe.image}
@@ -43,9 +53,36 @@ const Recipes = (props) => {
               <CardText>
                 Source: <i>{props.recipe.recipe.source}</i>
               </CardText>
-              <Button className="btn mb-1" type="submit" color="success">
+              <Button
+                onClick={toggle}
+                className="btn mb-1"
+                type="button"
+                color="success"
+              >
                 Recipe
               </Button>
+              <Modal isOpen={recipeModal} toggle={toggle} className="modal">
+                <ModalHeader toggle={toggle}>Recipe</ModalHeader>
+                <ModalBody>
+                  <Form>
+                    <FormGroup>
+                      <Label htmlFor="email">Email: </Label>
+                    </FormGroup>
+                    <FormGroup>
+                      <Label htmlFor="password">Password: </Label>
+                      <Input />
+                    </FormGroup>
+                    <FormGroup>
+                      <Button color="primary" type="submit" onClick={toggle}>
+                        Create account!
+                      </Button>{" "}
+                      <Button color="secondary" onClick={toggle}>
+                        Cancel
+                      </Button>
+                    </FormGroup>
+                  </Form>
+                </ModalBody>
+              </Modal>
             </CardBody>
           </Card>
         </CardGroup>

@@ -1,5 +1,13 @@
 import React, { useState } from "react";
-import { Input, Form, InputGroup, Container, Row, Button } from "reactstrap";
+import {
+  Input,
+  Form,
+  InputGroup,
+  Container,
+  Row,
+  Button,
+  Jumbotron,
+} from "reactstrap";
 import Recipes from "./Recipes";
 
 const Search = () => {
@@ -68,9 +76,22 @@ const Search = () => {
       <div>
         <Container>
           <Row>
-            {recipes.map((recipe) => {
-              return <Recipes recipe={recipe} />;
-            })}
+            {recipes.length > 0 ? (
+              recipes.map((recipe) => {
+                return <Recipes recipe={recipe} />;
+              })
+            ) : (
+              <div>
+                <Jumbotron>
+                  <h3 className="jumbo">Sorry, that's not on the menu!</h3>
+                  <p className="lead">
+                    We didn't find any recipes for that search. Since you're
+                    still hungry, try a different search!
+                  </p>
+                  <hr className="my-2" />
+                </Jumbotron>
+              </div>
+            )}
           </Row>
         </Container>
       </div>

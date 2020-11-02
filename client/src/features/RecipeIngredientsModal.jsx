@@ -1,20 +1,21 @@
 // import React, { useState } from "react";
+// import InputGroup from "react-bootstrap/InputGroup";
 // import { Button, Modal, InputGroup, FormControl } from "reactstrap";
 
-// // const Ingredients = () => {
-// //   return (
-// //     <div>
-// //       <InputGroup className="mb-3">
-// //         <InputGroup.Prepend>
-// //           <InputGroup.Checkbox aria-label="Checkbox for following text input" />
-// //         </InputGroup.Prepend>
-// //         <FormControl aria-label="Text input with checkbox" />
-// //       </InputGroup>
-// //     </div>
-// //   );
-// // };
+// const Ingredients = () => {
+//   return (
+//     <div>
+//       <InputGroup className="mb-3">
+//         <InputGroup.Prepend>
+//           <InputGroup.Checkbox aria-label="Checkbox for following text input" />
+//         </InputGroup.Prepend>
+//         <FormControl aria-label="Text input with checkbox" />
+//       </InputGroup>
+//     </div>
+//   );
+// };
 
-// // export default Ingredients;
+// export default Ingredients;
 
 // const Example = () => {
 //   const [show, setShow] = useState(false);
