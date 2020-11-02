@@ -71,7 +71,6 @@ const Recipes = (props) => {
                 <ModalHeader toggle={toggle}>{props.recipe.recipe.label}</ModalHeader>
                 <ModalBody>
                    {props.recipe.recipe.ingredients.map(ingredient => (<li>{ingredient.text} <button onClick={addIngredient}>Add</button></li>))}
-                   
                 </ModalBody>
                 </Modal>
             </CardBody>
