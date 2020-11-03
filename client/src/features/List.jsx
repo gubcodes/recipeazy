@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Table, Button, Form, FormGroup, Label, Input, Container, Row, Col, ListTable, Card } from 'reactstrap';
+import { Table, Button, Form, FormGroup, Label, Input, Container, Row, Col, Card } from 'reactstrap';
 import ListEdit from './ListEdit';
 import ListTable from './ListIngredients';
 
@@ -50,7 +50,7 @@ const ListDisplay = (props) => {
     }, [])
 
     return(
-        <Container>
+        <Container style={{marginTop: "25px"}}>
             <Card body>
             <Row>
                 <Col md="9">
