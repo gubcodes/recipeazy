@@ -57,7 +57,6 @@ function Home(props) {
 
       
       <br/>
-      <br/>
       <div id='logo' class='logoAnimate'>
        <img src='../../assets/recipeazyLogo.png'></img>
       </div>
