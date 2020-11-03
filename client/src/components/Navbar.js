@@ -53,7 +53,8 @@ const RecipeNavbar = (props) => {
   };
 
   const logOut = () => {
-    localStorage.clear("token")
+    localStorage.clear("token");
+    alert('You have been successfully logged out.') //added by jesse 11/3 6:15pm
   };
 
   
@@ -76,7 +77,13 @@ const RecipeNavbar = (props) => {
             <Auth updateToken={updateToken}/>
           </Nav>
           <Nav>
-            <Button className={classes.button1} style={{ marginRight: 25 }} onClick={logOut}>Log out</Button>
+            <Button className={classes.button1} id="buttonHover"
+            style={{ marginRight: 25,
+            backgroundColor: '#E717E8',
+            borderRadius: '10px',
+            transition: 'transform 0.3s ease',
+            boxShadow: '5px 5px 5px 0px rgba(231,23,232,0.3)',
+            border: 'none' }} onClick={logOut}>Log out</Button>
             </Nav>
           <NavbarText><span className={classes.colorText2}>Finding recipes with </span><span className={classes.colorText}>eaze.</span></NavbarText>
         </Collapse>

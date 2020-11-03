@@ -23,18 +23,24 @@ const ListEdit = (props) => {
 
     return (
         <Modal isOpen={true}>
-            <ModalHeader>insert ingredient here?</ModalHeader>
+            <ModalHeader style={{fontFamily: 'Grandstander'}}>Add a quick note or update quantity!</ModalHeader>
             <ModalBody>
                 <Form onSubmit={ingredientUpdate}>
                     <FormGroup>
-                        <Label htmlFor='comment'>Add Note:</Label>
+                        <Label htmlFor='comment' style={{fontFamily: 'Roboto'}}>Add Note:</Label>
                         <Input name='comment' value={editComment} onChange={(e) => setEditComment(e.target.value)} />
                     </FormGroup>
                     <FormGroup>
-                        <Label htmlFor='quantity'>Update Quantity:</Label>
+                        <Label htmlFor='quantity' style={{fontFamily: 'Roboto'}}>Update Quantity:</Label>
                         <Input name='quantity' value={editQuantity} onChange={(e) => setEditQuantity(e.target.value)} />
                     </FormGroup>
-                    <Button type='submit'>Update List</Button>
+                    <Button type='submit' style={{backgroundColor: '#18E817',
+                    borderRadius: '10px',
+                    transition: 'transform 0.3s ease',
+                    boxShadow: '5px 5px 5px 0px rgba(118,241,117,1)',
+                    border: 'none',
+                    fontFamily: 'Grandstander'
+                    }} id="buttonHover">Update List</Button>
                 </Form>
             </ModalBody>
         </Modal>

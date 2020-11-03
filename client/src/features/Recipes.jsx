@@ -63,18 +63,23 @@ const Recipes = (props) => {
             />
             <CardBody>
               <CardTitle>
-                <b>{props.recipe.recipe.label}</b>
+                <b style={{fontFamily: 'Grandstander'}}>{props.recipe.recipe.label}</b>
               </CardTitle>
-              <CardSubtitle>Servings: {props.recipe.recipe.yield}</CardSubtitle>
-              <CardText>
+              <CardSubtitle style={{fontFamily: 'Roboto'}}>Servings: {props.recipe.recipe.yield}</CardSubtitle>
+              <CardText style={{fontFamily: 'Roboto'}}>
                 Source: <i>{props.recipe.recipe.source}</i>
               </CardText>
 
-              <Button color="success" onClick={toggle}>Recipe</Button>
+              <Button color="success" id="buttonHover" style={{fontFamily: 'Grandstander', backgroundColor: '#E717E8',
+              borderRadius: '10px',
+              transition: 'transform 0.3s ease',
+              boxShadow: '5px 5px 5px 0px rgba(231,23,232,0.3)',
+              border: 'none'}} onClick={toggle}>Recipe</Button>
               <Modal isOpen={recipeModal} toggle={toggle}>
-                <ModalHeader toggle={toggle}>{props.recipe.recipe.label}</ModalHeader>
-                <ModalBody>
-                   {props.recipe.recipe.ingredients.map((ingredient) => (<li>{ingredient.text}</li>))} <button onClick={addIngredient}>Add</button>
+                <ModalHeader style={{fontFamily: 'Grandstander'}} toggle={toggle}>{props.recipe.recipe.label}</ModalHeader>
+                <ModalBody style={{fontFamily: 'Roboto'}}>
+                   {props.recipe.recipe.ingredients.map((ingredient) => (<li>{ingredient.text}</li>))}
+                   <Button style={{backgroundColor: '#18E817', fontFamily: 'Grandstander', border: 'none', borderRadius: '10px', boxShadow: '5px 5px 5px 0px rgba(118,241,117,1)', transition: 'transform 0.3s ease'}} id='buttonHover' onClick={addIngredient}>Add</Button>
                 </ModalBody>
                 </Modal>
             </CardBody>

@@ -44,12 +44,18 @@ function Register(props) {
     ).then((data) => {
       props.updateToken(data.sessionToken);
     }).then(alert('Your account has been created!'))
-    .catch(alert('Something went wrong - please retry.'));
+    // .catch(alert('Something went wrong - please retry.')); commented out by jesse 11/3 6:15pm
   };
 
   return (
     <div className={classes.root}>
-      <Button className={classes.button1} style={{ marginRight: -10 }} color="danger" onClick={toggle}>Register{buttonLabel}</Button>
+      <Button type="button" id="buttonHover" style=
+        {{backgroundColor: '#E717E8',
+        borderRadius: '10px',
+        transition: 'transform 0.3s ease',
+        boxShadow: '5px 5px 5px 0px rgba(231,23,232,0.3)',
+        border: 'none'
+        }} onClick={toggle}>Register{buttonLabel}</Button>
       <Modal isOpen={registerModal} toggle={toggle} className={className}>
         <ModalHeader toggle={toggle}>Sign up to save your shopping list!</ModalHeader>
         <ModalBody>

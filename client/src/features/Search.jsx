@@ -35,7 +35,7 @@ const Search = () => {
   const [query, setQuery] = useState("");
   const [recipes, setRecipes] = useState([]);
   const [foodId, setFoodId] = useState(0);
-  const [searchMessage, setSearchMessage] = useState('Try searching above!')
+  const [searchMessage, setSearchMessage] = useState(`What's on the menu? Try something new tonight!`)
   const key = "7e3ece4b23caceba0b10218d76df8b52";
   const appId = "776dedf5";
   const url = `https://api.edamam.com/search?q=${query}&app_id=${appId}&app_key=${key}`;
@@ -48,9 +48,9 @@ const Search = () => {
         setRecipes(data.hits); //map over array?
         setQuery("");
         if (recipes.length === 0) {
-          setSearchMessage('OOPS! YA MESSED UP!')
+          setSearchMessage(`Oh no! We did not find anything for that!`)
         } else {
-          setSearchMessage('Try searching above!')
+          setSearchMessage(`What's on the menu? Try something new tonight!`)
         }
       });
   };
@@ -82,9 +82,10 @@ const Search = () => {
                 placeholder="Search by name, cuisine, mealtime, or ingredients"
                 onChange={onChange}
                 value={query}
+                style={{fontFamily: 'Grandstander'}}
               />
               <div class="input-group-append">
-                <Button className="btn" type="submit" color="success">
+                <Button className="btn" type="submit" style={{backgroundColor: '#18E817', border: 'none', fontFamily: 'Grandstander'}}>
                   Search
                 </Button>
               </div>
@@ -100,11 +101,7 @@ const Search = () => {
             {recipes.length === 0 ? (
               <div id="searchResult">
                 <Jumbotron>
-                  <h3 className="jumbo">What's on the menu?</h3>
-                  <p className="lead">
-                  {searchMessage}
-                  </p>
-                  <hr className="my-2" />
+                  <h3 className="jumbo" style={{fontFamily: 'Grandstander'}}>{searchMessage}</h3>
                 </Jumbotron>
               </div>
             ) : (
