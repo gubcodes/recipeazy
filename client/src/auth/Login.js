@@ -9,6 +9,11 @@ const useStyles = makeStyles((theme) => ({
 
       fontFamily: "Grandstander",
 
+  },
+  button1: {
+    fontFamily: "Grandstander",
+    color: "#18E817",
+    backgroundColor: "#E717E8"
   }
 
 }));
@@ -45,7 +50,7 @@ const Login = (props) => {
 
   return (
     <div className={classes.root}>
-      <Button color="danger" onClick={toggle}>Login{buttonLabel}</Button>
+      <Button className={classes.button1} style={{ marginRight: 15 }} color="danger" onClick={toggle}>Login{buttonLabel}</Button>
       <Modal isOpen={loginModal} toggle={toggle} className={className}>
         <ModalHeader toggle={toggle}>Welcome back!</ModalHeader>
         <ModalBody>

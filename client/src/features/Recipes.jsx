@@ -16,13 +16,19 @@ import ListItem from '@material-ui/core/ListItem';
 
 
 const Recipes = (props) => {
-  const [ingredient, setIngredient] = useState('');
-
+  console.log(props.ingredients);
+  console.log(props.title);
+  console.log(props.recipe)
+  const [ingredient, setIngredient] = useState(props.ingredients);
+  const [comment, setComment] = useState('');
   const addIngredient = (e) => {
+    ingredient.map((ingredients) => {
+
+    
     e.preventDefault();
     fetch('https://group-4-recipeazy-server.herokuapp.com/list/create', {
       method:'POST',
-      body: JSON.stringify({listdata:{ingredient: ingredient, quantity: 1, comment: " "}}),
+      body: JSON.stringify({listdata:{ingredient: ingredients.text, quantity: 1, comment: comment}}),
       headers: new Headers({
         'Content-Type': 'application/json',
         'Authorization': localStorage.token
@@ -30,8 +36,8 @@ const Recipes = (props) => {
     }).then((res) => res.json())
     .then((listData) => {
       console.log(listData);
-      setIngredient('');
     })
+  })
   }
 
   const [recipeModal, setRecipeModal] = useState(false);
@@ -68,7 +74,7 @@ const Recipes = (props) => {
               <Modal isOpen={recipeModal} toggle={toggle}>
                 <ModalHeader toggle={toggle}>{props.recipe.recipe.label}</ModalHeader>
                 <ModalBody>
-                   {props.recipe.recipe.ingredients.map(ingredient => (<li>{ingredient.text} <button onClick={addIngredient}>Add</button></li>))}
+                   {props.recipe.recipe.ingredients.map((ingredient) => (<li>{ingredient.text}</li>))} <button onClick={addIngredient}>Add</button>
                 </ModalBody>
                 </Modal>
             </CardBody>

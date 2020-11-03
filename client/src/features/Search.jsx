@@ -34,7 +34,8 @@ const Search = () => {
 
   const [query, setQuery] = useState("");
   const [recipes, setRecipes] = useState([]);
-
+  const [foodId, setFoodId] = useState(0);
+  const [searchMessage, setSearchMessage] = useState('Try searching above!')
   const key = "7e3ece4b23caceba0b10218d76df8b52";
   const appId = "776dedf5";
   const url = `https://api.edamam.com/search?q=${query}&app_id=${appId}&app_key=${key}`;
@@ -46,6 +47,11 @@ const Search = () => {
         console.log(data);
         setRecipes(data.hits); //map over array?
         setQuery("");
+        if (recipes.length === 0) {
+          setSearchMessage('OOPS! YA MESSED UP!')
+        } else {
+          setSearchMessage('Try searching above!')
+        }
       });
   };
 
@@ -96,14 +102,14 @@ const Search = () => {
                 <Jumbotron>
                   <h3 className="jumbo">What's on the menu?</h3>
                   <p className="lead">
-                    If you're
-                    still hungry, try another search!
+                  {searchMessage}
                   </p>
                   <hr className="my-2" />
                 </Jumbotron>
               </div>
             ) : (
-              recipes.slice(0,9).map((recipe) => <Recipes recipe={recipe} title={recipe.recipe.label} ingredients={recipe.recipe.ingredients} />)
+            recipes.slice(0,9).map((recipe) => 
+            <Recipes recipe={recipe} title={recipe.recipe.label} ingredients={recipe.recipe.ingredients} />)
             )}
           </Row>
         </Container>
