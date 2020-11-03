@@ -27,6 +27,7 @@ function App() {
   const [isOpen, setIsOpen] = useState(false);
   const [sessionToken, setSessionToken] = useState("");
 
+
   const updateToken = (newToken) => {
     localStorage.setItem("token", newToken);
     setSessionToken(newToken);
@@ -65,6 +66,7 @@ const protectedViews = () => {
       <CssBaseline />
       <Router>
       <RecipeNavbar/>
+      <Home/>
       </Router>
       
       {/*<div>{protectedViews()}</div>

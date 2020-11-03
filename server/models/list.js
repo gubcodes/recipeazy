@@ -4,6 +4,9 @@ module.exports = function (sequelize, DataTypes) {
         ingredient: DataTypes.STRING,
         food_id: DataTypes.INTEGER, //MAYBE! check it out
         quantity: DataTypes.INTEGER,
-        comment: DataTypes.STRING
+        comment: {
+            type: DataTypes.STRING,
+            allowNull: true
+        }
     })
 }

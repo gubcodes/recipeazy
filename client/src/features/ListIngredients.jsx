@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table, Button } from 'reactstrap';
+import { Table, Button, Image } from 'reactstrap';
 
 const ListTable = (props) => {
 
@@ -23,7 +23,7 @@ const ListTable = (props) => {
                     <td>{ingredient.quantity}</td>
                     <td>{ingredient.comment}</td>
                     <td>
-                        <Button color='info' onClick={() => {props.editUpdateIngredient(ingredient); props.updateOn()}}>Add Note</Button>
+                        <Button color='info' onClick={() => {props.editUpdateIngredient(ingredient); props.updateOn()}}>Notes</Button>
                         <Button color='danger' onClick={() => {deleteIngredient(ingredient)}}>Delete</Button>
                     </td>
                 </tr>
