@@ -53,7 +53,8 @@ const RecipeNavbar = (props) => {
   };
 
   const logOut = () => {
-    localStorage.clear("token")
+    localStorage.clear("token");
+    alert('You have been successfully logged out.') //added by jesse 11/3 6:15pm
   };
 
   

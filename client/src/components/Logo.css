@@ -1,0 +1,25 @@
+@-webkit-keyframes logoAnimate {
+    0% {
+        transform: skew(1deg, 1deg) scale(.7);
+      }
+      100% {
+        transform: skew(-2deg, -2deg) scale(.68);
+      }
+  }
+@keyframes logoAnimate {
+    0% {
+        transform: skew(1deg, 1deg) scale(.7);
+      }
+      100% {
+        transform: skew(-2deg, -2deg) scale(.68);
+      }
+  }
+
+#logo {
+    margin-top: -80px;
+    position: absolute;
+    margin-left: 40%;
+    transform-origin: bottom;
+    animation: logoAnimate .75s ease infinite alternate;
+    -webkit-animation: logoAnimate .75s cubic-bezier(.5,0.05,1.2,.75) infinite alternate;
+}

@@ -44,7 +44,7 @@ function Register(props) {
     ).then((data) => {
       props.updateToken(data.sessionToken);
     }).then(alert('Your account has been created!'))
-    .catch(alert('Something went wrong - please retry.'));
+    // .catch(alert('Something went wrong - please retry.')); commented out by jesse 11/3 6:15pm
   };
 
   return (
