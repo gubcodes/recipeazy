@@ -11,3 +11,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+#buttonHover:hover {
+  transform: translateY(-3px);
+}
+
+th {
+  font-family: 'Roboto'
+}

@@ -82,9 +82,10 @@ const Search = () => {
                 placeholder="Search by name, cuisine, mealtime, or ingredients"
                 onChange={onChange}
                 value={query}
+                style={{fontFamily: 'Grandstander'}}
               />
               <div class="input-group-append">
-                <Button className="btn" type="submit" color="success">
+                <Button className="btn" type="submit" style={{backgroundColor: '#18E817', border: 'none', fontFamily: 'Grandstander'}}>
                   Search
                 </Button>
               </div>
@@ -100,7 +101,7 @@ const Search = () => {
             {recipes.length === 0 ? (
               <div id="searchResult">
                 <Jumbotron>
-                  <h3 className="jumbo">What's on the menu?</h3>
+                  <h3 className="jumbo" style={{fontFamily: 'Grandstander'}}>What's on the menu?</h3>
                   <p className="lead">
                   {searchMessage}
                   </p>

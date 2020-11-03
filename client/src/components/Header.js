@@ -15,7 +15,11 @@ const useStyles = makeStyles((theme) => ({
             justifyContent: 'center',
             alignItems: 'center',
             height: '100vh',
-            padding: '5px'
+            padding: '5px',
+            MozUserSelect: "none",
+            WebkitUserSelect: "none",
+            msUserSelect: "none",
+            userSelect: 'none'
         },
         AppBar:{
             textAlign: 'right',
