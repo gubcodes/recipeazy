@@ -51,6 +51,8 @@ const RecipeNavbar = (props) => {
     console.log(sessionToken);
   };
 
+
+  
   return (
     <div className={classes.root}>
       <Navbar color="light" light expand="md">
