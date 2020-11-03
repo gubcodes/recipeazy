@@ -50,7 +50,12 @@ const Login = (props) => {
 
   return (
     <div className={classes.root}>
-      <Button className={classes.button1} style={{ marginRight: 15 }} color="danger" onClick={toggle}>Login{buttonLabel}</Button>
+      <Button style={{backgroundColor: '#18E817',
+        borderRadius: '10px',
+        transition: 'transform 0.3s ease',
+        boxShadow: '5px 5px 5px 0px rgba(118,241,117,1)',
+        border: 'none'
+        }} id="buttonHover" onClick={toggle}>Login{buttonLabel}</Button>
       <Modal isOpen={loginModal} toggle={toggle} className={className}>
         <ModalHeader toggle={toggle}>Welcome back!</ModalHeader>
         <ModalBody>

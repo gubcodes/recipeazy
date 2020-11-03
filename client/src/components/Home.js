@@ -7,7 +7,8 @@ const useStyles = makeStyles((theme) => ({
         justifyContent: 'center',
         alignItems: 'center',
         height: '100vh',
-        padding: '5px'
+        padding: '5px',
+        userSelect: 'none'
     },
     colorText: {
         color: "#18E817",
@@ -49,7 +50,8 @@ function Home(props) {
       <br/>
       <br/>
       <br/>
-      <h3 className={classes.bodyText}><span className={classes.colorText2}>Search for recipes and add the desired ingredients into your own personal shopping list!</span></h3>
+      <h3 className={classes.bodyText}><span className={classes.colorText2} style=
+        {{fontFamily: 'Grandstander'}}>Search for recipes and add the desired ingredients into your own personal shopping list!</span></h3>
 </div>
 )}
 

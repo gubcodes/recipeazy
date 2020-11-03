@@ -33,9 +33,10 @@ const ListTable = (props) => {
 
     return(
         <>
-        <h3>Happy Shopping!</h3>
+        <h3 style=
+        {{color: '#E717E8', fontFamily: 'Grandstander'}}>Happy Shopping!</h3>
         <hr/>
-        <Table>
+        <Table style={{border: '4px dashed #E717E8'}}>
             <thead>
                 <tr>
                     <th>Item</th>
