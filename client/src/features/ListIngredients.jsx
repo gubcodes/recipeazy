@@ -23,8 +23,8 @@ const ListTable = (props) => {
                     <td>{ingredient.quantity}</td>
                     <td>{ingredient.comment}</td>
                     <td>
-                        <Button color='info' onClick={() => {props.editUpdateIngredient(ingredient); props.updateOn()}}>Notes</Button>
-                        <Button color='danger' onClick={() => {deleteIngredient(ingredient)}}>Delete</Button>
+                        <Button color='info' onClick={() => {props.editUpdateIngredient(ingredient); props.updateOn()}}><img src='../../assets/notes.png' width='20' height='20'></img></Button>
+                        <Button color='danger' onClick={() => {deleteIngredient(ingredient)}}><img src='../../assets/close.png' width='20' height='20'></img></Button>
                     </td>
                 </tr>
             )
@@ -34,7 +34,6 @@ const ListTable = (props) => {
     return(
         <>
         <h3>Happy Shopping!</h3>
-        <p>Don't forget to try the 'Add Note' button to add reminders and adjust quantities!</p>
         <hr/>
         <Table>
             <thead>
@@ -42,6 +41,7 @@ const ListTable = (props) => {
                     <th>Item</th>
                     <th>Qty.</th>
                     <th>Notes</th>
+                    <th>Edit - Remove</th>
                 </tr>
             </thead>
             <tbody>

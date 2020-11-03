@@ -23,7 +23,7 @@ const ListEdit = (props) => {
 
     return (
         <Modal isOpen={true}>
-            <ModalHeader>insert ingredient here?</ModalHeader>
+            <ModalHeader>Add a quick note or update quantity!</ModalHeader>
             <ModalBody>
                 <Form onSubmit={ingredientUpdate}>
                     <FormGroup>

@@ -50,7 +50,7 @@ const ListDisplay = (props) => {
     }, [])
 
     return(
-        <Container style={{marginTop: "25px"}}>
+        <Container style={{marginTop: "25px", minWidth: "70%"}}>
             <Card body>
             <Row>
                 <Col md="9">
