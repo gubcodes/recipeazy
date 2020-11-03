@@ -70,6 +70,7 @@ function Register(props) {
             </FormGroup>
             <FormGroup>
               <Button style={{backgroundColor: '#18E817',
+              fontFamily: 'Grandstander',
               borderRadius: '10px',
               transition: 'transform 0.3s ease',
               boxShadow: '5px 5px 5px 0px rgba(118,241,117,1)',
@@ -77,6 +78,7 @@ function Register(props) {
               }} id="buttonHover" type="submit" onClick={toggle}>Create account</Button>{' '}
               <Button color="danger" id="buttonHover" style=
               {{borderRadius: '10px',
+              fontFamily: 'Grandstander',
               transition: 'transform 0.3s ease',
               boxShadow: '5px 5px 5px 0px rgba(231,23,232,0.3)',
               border: 'none'
