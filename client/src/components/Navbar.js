@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { AppBar, IconButton, makeStyles, Toolbar, } from '@material-ui/core';
 import {
     Route,
-    Link,
     Switch,
 } from 'react-router-dom'
 import {
+    Button,
     Collapse,
     Navbar,
     NavbarToggler,
@@ -13,10 +13,6 @@ import {
     Nav,
     NavItem,
     NavLink,
-    UncontrolledDropdown,
-    DropdownToggle,
-    DropdownMenu,
-    DropdownItem,
     NavbarText
   } from 'reactstrap';
 import Search from '../features/Search';
@@ -33,6 +29,11 @@ const useStyles = makeStyles((theme) => ({
   colorText2: {
       fontFamily: "Grandstander",
       color: "#E717E8",
+  },
+  button1: {
+    fontFamily: "Grandstander",
+    color: "#18E817",
+    backgroundColor: "#E717E8"
   }
 }));
 
@@ -51,6 +52,9 @@ const RecipeNavbar = (props) => {
     console.log(sessionToken);
   };
 
+  const logOut = () => {
+    localStorage.clear("token")
+  };
 
   
   return (
@@ -65,18 +69,20 @@ const RecipeNavbar = (props) => {
               <NavLink href="/search"><span className={classes.colorText2}>Recipe Search</span></NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/list">Shopping List</NavLink>
-              <NavLink href="/"><span className={classes.colorText}>Shopping List</span></NavLink>
+              <NavLink href="/list"><span className={classes.colorText}>Shopping List</span></NavLink>
             </NavItem>
           </Nav>
           <Nav>
             <Auth updateToken={updateToken}/>
-          </Nav>  
+          </Nav>
+          <Nav>
+            <Button className={classes.button1} style={{ marginRight: 25 }} onClick={logOut}>Log out</Button>
+            </Nav>
           <NavbarText><span className={classes.colorText2}>Finding recipes with </span><span className={classes.colorText}>eaze.</span></NavbarText>
         </Collapse>
       </Navbar>
       <Switch>
-            <Route exact path="/home"><Home/></Route>
+            <Route exact path="/home"></Route>
             <Route exact path="/search"><Search/></Route>
             <Route exact path="/list"><ListDisplay token={sessionToken} /></Route>
       </Switch>

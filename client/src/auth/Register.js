@@ -7,6 +7,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 const useStyles = makeStyles((theme) => ({
   root: {
       fontFamily: "Grandstander"
+  },
+  button1: {
+    fontFamily: "Grandstander",
+    color: "#18E817",
+    backgroundColor: "#E717E8"
   }
 }));
 
@@ -44,7 +49,7 @@ function Register(props) {
 
   return (
     <div className={classes.root}>
-      <Button color="danger" onClick={toggle}>Register{buttonLabel}</Button>
+      <Button className={classes.button1} style={{ marginRight: -10 }} color="danger" onClick={toggle}>Register{buttonLabel}</Button>
       <Modal isOpen={registerModal} toggle={toggle} className={className}>
         <ModalHeader toggle={toggle}>Sign up to save your shopping list!</ModalHeader>
         <ModalBody>
