@@ -8,9 +8,30 @@ import {
   Button,
   Jumbotron,
 } from "reactstrap";
+import { makeStyles } from '@material-ui/core';
 import Recipes from "./Recipes";
 
+
 const Search = () => {
+  const useStyles = makeStyles((theme) => ({
+    colorText: {
+        fontFamily: "Grandstander",
+        color: "#18E817",
+    },
+    colorText2: {
+        fontFamily: "Grandstander",
+        color: "#E717E8",
+    },
+    customBg: {
+      backgroundColor: "rgba(0, 0, 0, 0.5)",
+      color: "whitesmoke",
+    },
+    customText: {
+      fontFamily: "Grandstander",
+    }
+  }));
+  const classes = useStyles();
+
   const [query, setQuery] = useState("");
   const [recipes, setRecipes] = useState([]);
 
@@ -41,11 +62,12 @@ const Search = () => {
 
   return (
     <>
-      <div className="main m-5 p-2 col-10">
+      <div className="main m-5 p-2 col-8 shadow-lg p-3 mb-5 bg-white rounded"> 
         <div className="mainDiv">
-          <h3 className="search mb-3" style={{ color: "white" }}>
+          <h3 className="search mb-3 p-1" style={{ backgroundColor: "rgba(0, 0, 0, 0.35)", color: "white", fontFamily: "Grandstander" }}>
             Recipe Search
-          </h3>
+          </h3> 
+          {/* /* className={classes.colorText}>Recipe Search</h3> */} 
           <Form className="form" onSubmit={onSubmit}>
             <InputGroup size="lg">
               <Input
@@ -81,7 +103,7 @@ const Search = () => {
                 </Jumbotron>
               </div>
             ) : (
-              recipes.map((recipe) => <Recipes recipe={recipe} title={recipe.recipe.label} ingredients={recipe.recipe.ingredients} />)
+              recipes.slice(0,9).map((recipe) => <Recipes recipe={recipe} title={recipe.recipe.label} ingredients={recipe.recipe.ingredients} />)
             )}
           </Row>
         </Container>
