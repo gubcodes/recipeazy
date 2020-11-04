@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { AppBar, IconButton, makeStyles, Toolbar, } from '@material-ui/core';
+import { makeStyles, Toolbar } from '@material-ui/core';
 import {
     Route,
     Switch,
@@ -18,7 +18,6 @@ import {
   } from 'reactstrap';
 import Search from '../features/Search';
 import Auth from '../auth/Auth';
-import Home from '../components/Home';
 import ListDisplay from '../features/List';
 
 
@@ -26,10 +25,18 @@ const useStyles = makeStyles((theme) => ({
   colorText: {
       fontFamily: "Grandstander",
       color: "#18E817",
+      userSelect: 'none',
+      MozUserSelect: 'none',
+      WebkitUserSelect: 'none',
+      msUserSelect: 'none'
   },
   colorText2: {
       fontFamily: "Grandstander",
       color: "#E717E8",
+      userSelect: 'none',
+      MozUserSelect: 'none',
+      WebkitUserSelect: 'none',
+      msUserSelect: 'none'
   },
   button1: {
     fontFamily: "Grandstander",
@@ -57,6 +64,7 @@ const RecipeNavbar = (props) => {
 
   const logOut = () => {
     localStorage.clear("token");
+    setSessionToken('');
     alert('You have been successfully logged out.') //added by jesse 11/3 6:15pm
   };
 
@@ -64,31 +72,36 @@ const RecipeNavbar = (props) => {
   
   return (
     <div className={classes.root}>
-      <Navbar color="light" light expand="md">
-        <NavbarBrand href="/"><span className={classes.colorText2}>Recip</span><span className={classes.colorText}>Eazy</span></NavbarBrand>
+
+      <Navbar color="light" light expand="md" fixed="top">
+        <NavbarBrand href="/home"><span className={classes.colorText2}>Recip</span><span className={classes.colorText}>Eazy</span></NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             
             <NavItem>
-              <NavLink href="/search"><span className={classes.colorText2}>Recipe Search</span></NavLink>
+            {localStorage.getItem('token') !== null ? <NavLink href="/search"><span className={classes.colorText2}>Recipe Search</span></NavLink>
+            : null}
             </NavItem>
             <NavItem>
-              <NavLink href="/list"><span className={classes.colorText}>Shopping List</span></NavLink>
+            {localStorage.getItem('token') !== null ? <NavLink href="/list"><span className={classes.colorText}>Shopping List</span></NavLink>
+            : null}
             </NavItem>
           </Nav>
           <Nav>
             <Auth updateToken={updateToken}/>
           </Nav>
-          <Nav>
-            <Button className={classes.button1} id="buttonHover"
+          <NavLink href="/home">
+            {localStorage.getItem('token') !== null ? <Button className={classes.button1} id="buttonHover"
             style={{ marginRight: 25,
             backgroundColor: '#E717E8',
             borderRadius: '10px',
             transition: 'transform 0.3s ease',
             boxShadow: '5px 5px 5px 0px rgba(231,23,232,0.3)',
-            border: 'none' }} onClick={logOut}>Log out</Button>
-            </Nav>
+            border: 'none' }} onClick={logOut}>Log out</Button> 
+            : null}
+
+            </NavLink>
           <NavbarText><span className={classes.colorText2}>Finding recipes with </span><span className={classes.colorText}>eaze.</span></NavbarText>
         </Collapse>
       </Navbar>
