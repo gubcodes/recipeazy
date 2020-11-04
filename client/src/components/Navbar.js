@@ -58,6 +58,7 @@ const RecipeNavbar = (props) => {
   };
 
   
+  
   return (
     <div className={classes.root}>
       <Navbar color="light" light expand="md">
