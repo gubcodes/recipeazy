@@ -3,6 +3,7 @@ import { AppBar, IconButton, makeStyles, Toolbar, } from '@material-ui/core';
 import {
     Route,
     Switch,
+    Redirect
 } from 'react-router-dom'
 import {
     Button,
@@ -51,6 +52,8 @@ const RecipeNavbar = (props) => {
     setSessionToken(newToken);
     console.log(sessionToken);
   };
+    
+  const isAuth = !!localStorage.getItem("token");
 
   const logOut = () => {
     localStorage.clear("token");
@@ -91,7 +94,7 @@ const RecipeNavbar = (props) => {
       <Switch>
             <Route exact path="/home"><Home/></Route>
             <Route exact path="/search"><Search/></Route>
-            <Route exact path="/list"><ListDisplay token={sessionToken} /></Route>
+            <Route exact path="/list">{!isAuth ? <Redirect to='/home'/> : <ListDisplay/>}</Route>
       </Switch>
     </div>
   );
