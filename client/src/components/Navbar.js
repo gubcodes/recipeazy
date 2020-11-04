@@ -19,7 +19,7 @@ import {
 import Search from '../features/Search';
 import Auth from '../auth/Auth';
 import ListDisplay from '../features/List';
-
+import Home from './Home';
 
 const useStyles = makeStyles((theme) => ({
   colorText: {
@@ -91,7 +91,7 @@ const RecipeNavbar = (props) => {
           <Nav>
             <Auth updateToken={updateToken}/>
           </Nav>
-          <NavLink href="/home">
+          <NavLink href="/">
             {localStorage.getItem('token') !== null ? <Button className={classes.button1} id="buttonHover"
             style={{ marginRight: 25,
             backgroundColor: '#E717E8',
