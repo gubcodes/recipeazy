@@ -23,8 +23,6 @@ const Recipes = (props) => {
   const [comment, setComment] = useState('');
   const addIngredient = (e) => {
     ingredient.map((ingredients) => {
-
-    
     e.preventDefault();
     fetch('https://group-4-recipeazy-server.herokuapp.com/list/create', {
       method:'POST',
@@ -36,6 +34,7 @@ const Recipes = (props) => {
     }).then((res) => res.json())
     .then((listData) => {
       console.log(listData);
+      setRecipeModal(!recipeModal);
     })
   })
   }
@@ -79,7 +78,7 @@ const Recipes = (props) => {
                 <ModalHeader style={{fontFamily: 'Grandstander'}} toggle={toggle}>{props.recipe.recipe.label}</ModalHeader>
                 <ModalBody style={{fontFamily: 'Roboto'}}>
                    {props.recipe.recipe.ingredients.map((ingredient) => (<li>{ingredient.text}</li>))}
-                   <Button style={{backgroundColor: '#18E817', fontFamily: 'Grandstander', border: 'none', borderRadius: '10px', boxShadow: '5px 5px 5px 0px rgba(118,241,117,1)', transition: 'transform 0.3s ease'}} id='buttonHover' onClick={addIngredient}>Add</Button>
+                   <Button style={{backgroundColor: '#18E817', fontFamily: 'Grandstander', border: 'none', borderRadius: '10px', boxShadow: '5px 5px 5px 0px rgba(118,241,117,1)', transition: 'transform 0.3s ease'}} id='buttonHover' onClick={addIngredient}>Add to Shopping List</Button>
                 </ModalBody>
                 </Modal>
             </CardBody>
