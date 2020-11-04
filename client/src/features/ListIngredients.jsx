@@ -22,8 +22,8 @@ const ListTable = (props) => {
                     <td>{ingredient.quantity}</td>
                     <td>{ingredient.comment}</td>
                     <td>
-                        <Button color='info' onClick={() => {props.editUpdateIngredient(ingredient); props.updateOn()}}><img src='../../assets/notes.png' width='20' height='20'></img></Button>
-                        <Button color='danger' onClick={() => {deleteIngredient(ingredient)}}><img src='../../assets/close.png' width='20' height='20'></img></Button>
+                        <Button className="listButton m-1" color='info' onClick={() => {props.editUpdateIngredient(ingredient); props.updateOn()}}><img src='../../assets/notes.png' width='20' height='20'></img></Button>
+                        <Button className="listButton m-1" color='danger' onClick={() => {deleteIngredient(ingredient)}}><img src='../../assets/close.png' width='20' height='20'></img></Button>
                     </td>
                 </tr>
             )

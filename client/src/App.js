@@ -37,8 +37,7 @@ useEffect(() => {
     <div className={classes.root}>
       <CssBaseline />
       <Router>
-      <RecipeNavbar/>
-      <Home/>
+      <RecipeNavbar />
       </Router>
     </div>
   );
