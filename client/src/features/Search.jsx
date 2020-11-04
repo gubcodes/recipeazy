@@ -45,7 +45,7 @@ const Search = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        setRecipes(data.hits); //map over array?
+        setRecipes(data.hits);
         setQuery("");
         if (recipes.length === 0) {
           setSearchMessage('OOPS! YA MESSED UP!')
@@ -73,7 +73,7 @@ const Search = () => {
           <h3 className="search mb-3 p-1" style={{ backgroundColor: "rgba(0, 0, 0, 0.35)", color: "white", fontFamily: "Grandstander" }}>
             Recipe Search
           </h3> 
-          {/* /* className={classes.colorText}>Recipe Search</h3> */} 
+
           <Form className="form" onSubmit={onSubmit}>
             <InputGroup size="lg">
               <Input

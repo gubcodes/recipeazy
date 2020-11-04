@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Form, FormGroup, Label, Input, Button, Modal, ModalHeader, ModalBody, ModalFooter} from 'reactstrap';
+import {Form, FormGroup, Label, Input, Button, Modal, ModalHeader, ModalBody} from 'reactstrap';
 import {makeStyles} from '@material-ui/core';
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -50,12 +50,13 @@ const Login = (props) => {
 
   return (
     <div className={classes.root}>
-      <Button style={{backgroundColor: '#18E817',
+      {localStorage.getItem('token') === null ? <Button style={{backgroundColor: '#18E817',
         borderRadius: '10px',
         transition: 'transform 0.3s ease',
         boxShadow: '5px 5px 5px 0px rgba(118,241,117,1)',
         border: 'none'
         }} id="buttonHover" onClick={toggle}>Login{buttonLabel}</Button>
+        : null}
       <Modal isOpen={loginModal} toggle={toggle} className={className}>
         <ModalHeader toggle={toggle} style={{fontFamily: 'Grandstander'}}>Welcome back!</ModalHeader>
         <ModalBody>
@@ -63,7 +64,7 @@ const Login = (props) => {
                 <FormGroup>
                     <Label htmlFor="email" style={{fontFamily: 'Roboto'}}>Email: </Label>
                     <Input onChange={(e) => setEmail(e.target.value)} type="email" name="email" value={email}/>
-                    {/*pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" required */}
+                    
                 </FormGroup>
                 <FormGroup>
                     <Label htmlFor="password" style={{fontFamily: 'Roboto'}}>Password: </Label>

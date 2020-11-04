@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { AppBar, IconButton, makeStyles, Toolbar, } from '@material-ui/core';
+import React from 'react';
+import { makeStyles, Toolbar } from '@material-ui/core';
 import './Logo.css';
 
 const useStyles = makeStyles((theme) => ({
@@ -70,12 +70,11 @@ function Home(props) {
       <h3 className={classes.bodyText}><span className={classes.colorText2} style=
         {{fontFamily: 'Grandstander'}}>Search for recipes and add the desired ingredients into your own personal shopping list!</span></h3>
 
-      
       <br/>
+
       <div id='logo' class='logoAnimate'>
        <img src='../../assets/recipeazyLogo.png'></img>
       </div>
-
 </div>
 )}
 

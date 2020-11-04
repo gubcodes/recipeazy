@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table, Button, Image } from 'reactstrap';
+import { Table, Button } from 'reactstrap';
 
 const ListTable = (props) => {
 
@@ -18,7 +18,6 @@ const ListTable = (props) => {
         return props.ingredients.map((ingredient, index) => {
             return(
                 <tr key={index}>
-                    {/* <th scope='row'>{ingredient.id}</th> */}
                     <th scope='row'>{ingredient.ingredient}</th>
                     <td>{ingredient.quantity}</td>
                     <td>{ingredient.comment}</td>

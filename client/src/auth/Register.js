@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Form, FormGroup, Label, Input, Button, Modal, ModalHeader, ModalBody, ModalFooter} from 'reactstrap';
+import {Form, FormGroup, Label, Input, Button, Modal, ModalHeader, ModalBody} from 'reactstrap';
 import {makeStyles} from '@material-ui/core';
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -44,7 +44,6 @@ function Register(props) {
     ).then((data) => {
       props.updateToken(data.sessionToken);
     }).then(alert('Your account has been created!'))
-    // .catch(alert('Something went wrong - please retry.')); commented out by jesse 11/3 6:15pm
   };
 
   return (
