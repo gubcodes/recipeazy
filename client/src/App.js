@@ -65,7 +65,7 @@ const protectedViews = () => {
     <div className={classes.root}>
       <CssBaseline />
       <Router>
-      <RecipeNavbar/>
+      <RecipeNavbar />
       </Router>
       
       {/*<div>{protectedViews()}</div>
