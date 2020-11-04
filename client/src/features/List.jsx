@@ -13,9 +13,9 @@ const ListDisplay = (props) => {
     //checkbox for purchased, 'update' button deletes these items
     //add custom item (not in recipe)
 
-    const [ ingredients, setIngredients ] = useState([]);
-    const [ updateOpen, setUpdateOpen ] = useState(false);
-    const [ ingredientToEdit, setIngredientToEdit ] = useState({});
+    const [ingredients, setIngredients] = useState([]);
+    const [updateOpen, setUpdateOpen] = useState(false);
+    const [ingredientToEdit, setIngredientToEdit] = useState({});
 
 
     const fetchIngredients = () => {
@@ -26,10 +26,10 @@ const ListDisplay = (props) => {
                 'Authorization': localStorage.token
             })
         }).then((res) => res.json())
-        .then((listData) => {
-            setIngredients(listData);
-            console.log(listData);
-        })
+            .then((listData) => {
+                setIngredients(listData);
+                console.log(listData);
+            })
     }
 
     const editUpdateIngredient = (ingredient) => {
@@ -50,18 +50,18 @@ const ListDisplay = (props) => {
     }, [])
 
 
-    return(
-        <Container style={{marginTop: "25px", minWidth: "70%"}}>
-            <Card body>
-            <Row>
-                <Col md="9">
-                    <ListTable ingredients={ingredients} editUpdateIngredient={editUpdateIngredient} updateOn={updateOn} fetchIngredients={fetchIngredients} token={props.token}/>
-                </Col>
-                {updateOpen ? <ListEdit ingredientToEdit={ingredientToEdit}
-                updateOff={updateOff} token={props.token} fetchIngredients={fetchIngredients} /> : <></>}
-            </Row>
+    return (
+        <div style={{padding: "50px"}}>
+            <Card body className="ml-auto mr-auto mt-5 col-7">
+                <Row>
+                    <Col md="9">
+                        <ListTable ingredients={ingredients} editUpdateIngredient={editUpdateIngredient} updateOn={updateOn} fetchIngredients={fetchIngredients} token={props.token} />
+                    </Col>
+                    {updateOpen ? <ListEdit ingredientToEdit={ingredientToEdit}
+                        updateOff={updateOff} token={props.token} fetchIngredients={fetchIngredients} /> : <></>}
+                </Row>
             </Card>
-        </Container>
+        </div>
     )
 }
 

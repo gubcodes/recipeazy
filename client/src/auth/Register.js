@@ -48,13 +48,14 @@ function Register(props) {
 
   return (
     <div className={classes.root}>
-      <Button type="button" id="buttonHover" style=
+      {localStorage.getItem('token') === null ? <Button type="button" id="buttonHover" style=
         {{backgroundColor: '#E717E8',
         borderRadius: '10px',
         transition: 'transform 0.3s ease',
         boxShadow: '5px 5px 5px 0px rgba(231,23,232,0.3)',
         border: 'none'
         }} onClick={toggle}>Register{buttonLabel}</Button>
+        : null}
       <Modal isOpen={registerModal} toggle={toggle} className={className}>
         <ModalHeader style={{fontFamily: 'Grandstander'}} toggle={toggle}>Sign up to save your shopping list!</ModalHeader>
         <ModalBody>
