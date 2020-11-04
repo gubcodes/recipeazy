@@ -89,7 +89,7 @@ const RecipeNavbar = (props) => {
         </Collapse>
       </Navbar>
       <Switch>
-            <Route exact path="/home"></Route>
+            <Route exact path="/home"><Home/></Route>
             <Route exact path="/search"><Search/></Route>
             <Route exact path="/list"><ListDisplay token={sessionToken} /></Route>
       </Switch>
