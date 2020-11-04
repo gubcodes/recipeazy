@@ -36,9 +36,9 @@ const Search = () => {
   const [recipes, setRecipes] = useState([]);
   const [foodId, setFoodId] = useState(0);
   const [searchMessage, setSearchMessage] = useState(`What's on the menu? Try something new tonight!`)
-  const key = `${process.env.REACT_APP_API_KEY}`;
-  const appId = `${process.env.REACT_APP_API_ID}`;
-  const url = `https://api.edamam.com/search?q=${query}&app_id=${appId}&app_key=${key}`;
+  const API_KEY = `${process.env.REACT_APP_API_KEY}`;
+  const API_ID = `${process.env.REACT_APP_API_ID}`;
+  const url = `https://api.edamam.com/search?q=${query}&app_id=${API_ID}&app_key=${API_KEY}`;
 
   const getData = () => {
     let data = fetch(url)
