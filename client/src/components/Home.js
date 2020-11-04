@@ -9,13 +9,24 @@ const useStyles = makeStyles((theme) => ({
         alignItems: 'center',
         height: '100vh',
         padding: '5px',
-        userSelect: 'none'
+        userSelect: 'none',
+        MozUserSelect: 'none',
+        WebkitUserSelect: 'none',
+        msUserSelect: 'none'
     },
     colorText: {
         color: "#18E817",
+        userSelect: 'none',
+        MozUserSelect: 'none',
+        WebkitUserSelect: 'none',
+        msUserSelect: 'none'
     },
     colorText2: {
         color: "#E717E8",
+        userSelect: 'none',
+        MozUserSelect: 'none',
+        WebkitUserSelect: 'none',
+        msUserSelect: 'none'
     },
     title: {
         color: "white",
@@ -23,6 +34,10 @@ const useStyles = makeStyles((theme) => ({
         textAlign: 'Center',
         fontSize: '6rem',
         textShadow: "2px 2px 4px #000000",
+        userSelect: 'none',
+        MozUserSelect: 'none',
+        WebkitUserSelect: 'none',
+        msUserSelect: 'none'
     },
     bodyText: {
         fontFamily: "Roboto",

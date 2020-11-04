@@ -25,10 +25,18 @@ const useStyles = makeStyles((theme) => ({
   colorText: {
       fontFamily: "Grandstander",
       color: "#18E817",
+      userSelect: 'none',
+      MozUserSelect: 'none',
+      WebkitUserSelect: 'none',
+      msUserSelect: 'none'
   },
   colorText2: {
       fontFamily: "Grandstander",
       color: "#E717E8",
+      userSelect: 'none',
+      MozUserSelect: 'none',
+      WebkitUserSelect: 'none',
+      msUserSelect: 'none'
   },
   button1: {
     fontFamily: "Grandstander",
