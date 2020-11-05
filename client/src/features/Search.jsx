@@ -96,8 +96,8 @@ const Search = () => {
           </div>
         </div>
         <div>
-          <Container>
-            <Row>
+          <Container className="ml-auto mr-auto">
+            <Row className="ml-auto mr-auto">
               {recipes.length === 0 ? (
                 <div id="searchResult" className="ml-auto mr-auto">
                   <Jumbotron>
