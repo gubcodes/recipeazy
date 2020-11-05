@@ -74,7 +74,7 @@ const RecipeNavbar = (props) => {
     <div className={classes.root}>
 
       <Navbar color="light" light expand="md" fixed="top">
-        <NavbarBrand href="/"><span className={classes.colorText2}>Recip</span><span className={classes.colorText}>Eazy</span></NavbarBrand>
+        <NavbarBrand href="/home"><span className={classes.colorText2}>Recip</span><span className={classes.colorText}>Eazy</span></NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>

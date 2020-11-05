@@ -36,6 +36,13 @@ const Search = () => {
   const [recipes, setRecipes] = useState([]);
   const [foodId, setFoodId] = useState(0);
   const [searchMessage, setSearchMessage] = useState(`What's on the menu? Try something new tonight!`)
+  // const key = process.env.REACT_APP_key;
+  // const appId = process.env.REACT_APP_id;
+
+  // const url = `https://api.edamam.com/search?q=${query}&app_id=${appId}&app_key=${key}`;
+
+  // const API_KEY = `${process.env.REACT_APP_API_KEY}`;
+  // const API_ID = `${process.env.REACT_APP_API_ID}`;
 
   const url = `https://api.edamam.com/search?q=${query}&app_id=${process.env.REACT_APP_API_ID}&app_key=${process.env.REACT_APP_API_KEY}`;
 
@@ -96,8 +103,8 @@ const Search = () => {
           </div>
         </div>
         <div>
-          <Container className="ml-auto mr-auto">
-            <Row className="ml-auto mr-auto">
+          <Container>
+            <Row>
               {recipes.length === 0 ? (
                 <div id="searchResult" className="ml-auto mr-auto">
                   <Jumbotron>

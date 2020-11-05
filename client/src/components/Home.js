@@ -69,7 +69,7 @@ function Home(props) {
       <br/>
 
       <h3 className={classes.bodyText}><span className={classes.colorText2} style=
-        {{fontFamily: 'Grandstander'}}>Search for recipes and add the desired ingredients into your own personal shopping list!</span><div className='mt-3' id="edamam-badge" data-color="white"></div></h3>
+        {{fontFamily: 'Grandstander', color: 'white'}}>Search for recipes and add the desired ingredients into your own personal shopping list!</span><div className='mt-3' id="edamam-badge" data-color="white"></div></h3>
 
       <br/>
 

@@ -52,9 +52,9 @@ const ListDisplay = (props) => {
 
     return (
         <div style={{padding: "50px"}}>
-            <Card body className="ml-auto mr-auto mt-5 col-8">
+            <Card body className="ml-auto mr-auto mt-5 col-7">
                 <Row>
-                    <Col className="ml-auto mr-auto col-12">
+                    <Col md="9">
                         <ListTable ingredients={ingredients} editUpdateIngredient={editUpdateIngredient} updateOn={updateOn} fetchIngredients={fetchIngredients} token={props.token} />
                     </Col>
                     {updateOpen ? <ListEdit ingredientToEdit={ingredientToEdit}
