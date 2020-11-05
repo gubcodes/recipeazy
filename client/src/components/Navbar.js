@@ -91,7 +91,7 @@ const RecipeNavbar = (props) => {
           <Nav>
             <Auth updateToken={updateToken}/>
           </Nav>
-          <NavLink href="/">
+          <NavLink href="/home">
             {localStorage.getItem('token') !== null ? <Button className={classes.button1} id="buttonHover"
             style={{ marginRight: 25,
             backgroundColor: '#E717E8',
@@ -106,7 +106,7 @@ const RecipeNavbar = (props) => {
         </Collapse>
       </Navbar>
       <Switch>
-            <Route exact path="/"><Home/></Route>
+            <Route exact path="/home"><Home/></Route>
             <Route exact path="/search"><Search/></Route>
             <Route exact path="/list">{!isAuth ? <Redirect to='/'/> : <ListDisplay/>}</Route>
       </Switch>
