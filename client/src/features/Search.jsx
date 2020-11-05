@@ -36,9 +36,8 @@ const Search = () => {
   const [recipes, setRecipes] = useState([]);
   const [foodId, setFoodId] = useState(0);
   const [searchMessage, setSearchMessage] = useState(`What's on the menu? Try something new tonight!`)
-  const key = process.env.REACT_APP_key;
-  const appId = process.env.REACT_APP_id;
-  const url = `https://api.edamam.com/search?q=${query}&app_id=${appId}&app_key=${key}`;
+
+  const url = `https://api.edamam.com/search?q=${query}&app_id=${process.env.REACT_APP_API_ID}&app_key=${process.env.REACT_APP_API_KEY}`;
 
   const getData = () => {
     let data = fetch(url)
@@ -68,7 +67,7 @@ const Search = () => {
 
   return (
     <>
-      <div style={{padding: "50px"}}>
+      <div style={{ padding: "50px" }}>
         <div className="main ml-auto mr-auto mt-5 mb-5 p-2 col-8 bg-white rounded">
           <div className="mainDiv">
             <h3 className="search mb-3 p-1" style={{ backgroundColor: "rgba(0, 0, 0, 0.35)", color: "white", fontFamily: "Grandstander" }}>
